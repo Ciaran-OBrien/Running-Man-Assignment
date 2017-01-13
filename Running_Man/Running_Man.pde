@@ -26,28 +26,30 @@ void draw() {
      posX = width;
    }
 
-   
+  // Character standing facing right
   if((frameCount/4)%2==0 && direction == 1){
     playerSkin = skin1;
   }
   
+  // Character runnning facing right
   else if ((frameCount/4)%2!=0 && direction == 1){
     playerSkin = skin2;
   }
   
+  // Characater standing facing left
   if((frameCount/4)%2==0 && direction == -1){
     playerSkin = skin3;
   }
   
+  // Character standing facing left
   else if ((frameCount/4)%2!=0 && direction == -1){
     playerSkin = skin4;
   }
+
   
-  //ellipse(posX,posY,50,50);
   imageMode(CENTER);
   image(playerSkin,posX,posY);
-
-
+  // Draw image using CENTER mode, playerSkin, based on above
  
 }
 
@@ -56,13 +58,13 @@ void draw() {
 void keyPressed(){
   
   if(key == 'a'){
-    
+    // Change direction leftward once key is pressed
     direction = -1;
   
   }
   
   else if(key == 'd'){
-    
+    // Change direction rightward once key is pressed
     direction = 1;
   
   }
