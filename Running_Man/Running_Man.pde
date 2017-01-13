@@ -44,6 +44,7 @@ void draw() {
   }
   
   //ellipse(posX,posY,50,50);
+  imageMode(CENTER);
   image(playerSkin,posX,posY);
 
 
