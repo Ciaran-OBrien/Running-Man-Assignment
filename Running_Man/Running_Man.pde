@@ -1,20 +1,26 @@
 void setup() {
 
-  size(1000, 1000);
+  size(1000,1000);
+  frameRate(24);
 
   for (int i=1; i<5; i++){
-    skins[i] = loadImage("marioRunning" + i + ".png");
-    enemies[i] = loadImage("enemy" + i + ".png");
+    skins[i] = loadImage("images/characters/mario/marioRunning" + i + ".png");
+    enemies[i] = loadImage("images/enemy/enemy" + i + ".png");
   }
   
-  frameRate(24);
-  String[] fontList = PFont.list();
-printArray(fontList);
+  // Create a new table to contain the high scores
+  highScore = new Table();
+  highScore.clearRows();
+  highScore.addColumn("Scores");
+  
+
+
 }
 
 PImage playerSkin;
 int horizon = 800, speed = 10, direction = 1, numOfSkins = 5;
 float posX , posY = horizon;
+String time = "000";
 PImage[] skins = new PImage[numOfSkins];
 PImage[] enemies = new PImage[numOfSkins];
 
@@ -67,8 +73,7 @@ void draw() {
 }
 
 void falling (){
-  
-println(y0);
+
 
   if(y0 > horizon+40) {
     y0 = -15;
@@ -86,7 +91,7 @@ println(y0);
 
 void timer()
 {
-  String time = "000";
+  
   int t,interval = 0;
   
   t = interval + int(millis()/1000);
@@ -110,6 +115,13 @@ void keyPressed(){
     // Change direction rightward once key is pressed
     direction = 1;
   
+  }
+  
+  // Testing key to save a score
+  else if(key == 's'){
+    TableRow value = highScore.addRow();
+    value.setString("Scores",time);
+    saveTable(highScore,"data/highScores.csv");
   }
 
 }
