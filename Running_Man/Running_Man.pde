@@ -103,7 +103,13 @@ void collision(){
   line(posX,posY-characterBorder,posX-characterXBorder,posY-characterBorder); // Line to the left
   
   
-
+  if (y0 + enemyYBorder >= posY - characterBorder &&// Y line border
+      x0 + enemyXBorder >= posX-characterXBorder && //Brigth enemy and Tleft char
+      x0 - enemyXBorder <= posX + characterXBorder //BLeft enemy and Tright char
+      ){
+        println("Hit !!");
+        noLoop();
+  }
 
 
 }
