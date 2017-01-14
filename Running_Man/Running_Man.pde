@@ -4,19 +4,31 @@ void setup() {
 
   for (int i=1; i<5; i++){
     skins[i] = loadImage("marioRunning" + i + ".png");
+    enemies[i] = loadImage("enemy" + i + ".png");
   }
   
   frameRate(24);
+  String[] fontList = PFont.list();
+printArray(fontList);
 }
 
 PImage playerSkin;
 int horizon = 800, speed = 10, direction = 1, numOfSkins = 5;
 float posX , posY = horizon;
 PImage[] skins = new PImage[numOfSkins];
+PImage[] enemies = new PImage[numOfSkins];
 
+// Save the highscore to a table
+Table highScore;
+
+float x0 = 200;
+float y0 = 0;
+float y0_speed=5;
+int r = (int)random(1,3);
 
 void draw() {
   background(205);
+  timer(); // Start timer at start of programe for now
   posX=posX+speed*direction;
    
   if(posX > width){
@@ -46,13 +58,44 @@ void draw() {
     playerSkin = skins[4];
   }
 
-  
+
   imageMode(CENTER);
   image(playerSkin,posX,posY);
   // Draw image using CENTER mode, playerSkin, based on above
  
+  falling();
 }
 
+void falling (){
+  
+println(y0);
+
+  if(y0 > horizon+40) {
+    y0 = -15;
+    x0 = random(width); 
+    y0_speed = random(3,7); 
+  }
+  
+  
+  //Move the ball
+  y0 += y0_speed; 
+  
+  image(enemies[1],x0,y0,100,100);
+ 
+}
+
+void timer()
+{
+  String time = "000";
+  int t,interval = 0;
+  
+  t = interval + int(millis()/1000);
+  time = nf(t,3);
+  // Formating the string 'time' with int numbers from 't'
+  textSize(32);
+  text("Your score: " + time,width*9/13,height*1/8);
+  
+}
 
 
 void keyPressed(){
