@@ -93,15 +93,6 @@ void falling (){
 void collision(){
   int enemyYBorder = 50,enemyXBorder = 25, characterXBorder = 50, characterBorder = 90;
   strokeWeight(15);
-  // Enemy test lines
-  line(x0,y0,x0,y0+enemyYBorder);
-  line(x0,y0+enemyYBorder,x0+enemyXBorder,y0+enemyYBorder); // Line to the right
-  line(x0,y0+enemyYBorder,x0-enemyXBorder,y0+enemyYBorder); // Line to the left
-  // Chacter test lines
-  line(posX,posY,posX,posY-characterBorder);
-  line(posX,posY-characterBorder,posX+characterXBorder,posY-characterBorder); // Line to the right
-  line(posX,posY-characterBorder,posX-characterXBorder,posY-characterBorder); // Line to the left
-  
   
   if (y0 + enemyYBorder >= posY - characterBorder &&// Y line border
       x0 + enemyXBorder >= posX-characterXBorder && //Brigth enemy and Tleft char
