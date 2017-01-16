@@ -150,3 +150,17 @@ void keyPressed(){
   }
 
 }
+
+// Touches are registered same as a clicked with touch enabled laptops
+void mouseClicked() {
+
+  if (direction == 1){
+  
+    direction = -1;
+  }
+  
+  else{
+    direction = 1;
+  }
+
+}
