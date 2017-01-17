@@ -127,7 +127,10 @@ void collision(){
       x0 + enemyXBorder >= posX-characterXBorder && //Brigth enemy and Tleft char
       x0 - enemyXBorder <= posX + characterXBorder //BLeft enemy and Tright char
       ){
-        println("Hit !!");
+        
+        TableRow value = highScore.addRow();
+        value.setString("Scores",time);
+        saveTable(highScore,"data/highScores.csv");
         noLoop();
   }
 
