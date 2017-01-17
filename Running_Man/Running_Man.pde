@@ -3,10 +3,7 @@ void setup() {
   size(1000,1000);
   frameRate(24);
 
-  for (int i=1; i<5; i++){
-    skins[i] = loadImage("images/characters/mario/marioRunning" + i + ".png");
-    enemies[i] = loadImage("images/enemy/enemy" + i + ".png");
-  }
+
   
   // Create a new table to contain the high scores
   highScore = new Table();
@@ -20,7 +17,7 @@ void setup() {
 PImage playerSkin;
 int horizon = 800, speed = 10, direction = 1, numOfSkins = 5;
 float posX , posY = horizon;
-String time = "000";
+String time = "000",character;
 PImage[] skins = new PImage[numOfSkins];
 PImage[] enemies = new PImage[numOfSkins];
 
@@ -34,7 +31,41 @@ int r = (int)random(1,3);
 
 void draw() {
   background(205);
+  
+  if(menu()){
+  println("GAME RUNNING");
+  background(205);
+  drawCharacter();
   timer(); // Start timer at start of programe for now
+  falling();
+  
+  collision();
+  }
+}
+
+
+boolean menu(){
+    
+    textSize(32);
+    textAlign(CENTER);
+    text("Please enter the number of the character you'd like to play\n1.Mario\n2.Sonic\n3.Pacman",width/2,height/2);
+
+    if (key == '1'){
+      character = "mario";
+      
+      return true;
+    }
+    
+  return false;
+}
+
+void drawCharacter(){
+      
+  for (int i=1; i<5; i++){
+    skins[i] = loadImage("images/characters/"+ character + "/"+ character + i + ".png");
+    enemies[i] = loadImage("images/enemy/enemy" + i + ".png");
+   }
+    
   posX=posX+speed*direction;
    
   if(posX > width){
@@ -68,9 +99,7 @@ void draw() {
   imageMode(CENTER);
   image(playerSkin,posX,posY);
   // Draw image using CENTER mode, playerSkin, based on above
- 
-  falling();
-  collision();
+
 }
 
 void falling (){
@@ -102,7 +131,6 @@ void collision(){
         noLoop();
   }
 
-
 }
 
 void timer()
@@ -121,20 +149,9 @@ void timer()
 
 void keyPressed(){
   
-  if(key == 'a'){
-    // Change direction leftward once key is pressed
-    direction = -1;
-  
-  }
-  
-  else if(key == 'd'){
-    // Change direction rightward once key is pressed
-    direction = 1;
-  
-  }
   
   // Testing key to save a score
-  else if(key == 's'){
+   if(key == 's'){
     TableRow value = highScore.addRow();
     value.setString("Scores",time);
     saveTable(highScore,"data/highScores.csv");
