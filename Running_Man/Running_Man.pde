@@ -128,6 +128,7 @@ void collision(){
       x0 - enemyXBorder <= posX + characterXBorder //BLeft enemy and Tright char
       ){
         
+        println("Game Over");
         TableRow value = highScore.addRow();
         value.setString("Scores",time);
         saveTable(highScore,"data/highScores.csv");
