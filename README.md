@@ -3,7 +3,7 @@
 <p align="center">
   <img src="http://i.giphy.com/oNlPuwLlBOl3i.gif">
 </p>
-<p align="center"><i>How long can you out run your enemiesc</i></p>
+<p align="center"><i>How long can you out run your enemies</i></p>
 ==========
 Running man is a side scrolling action game that follows you, The Man, running from various enemies. You score is taken from the time you start, till you get hit. Collect bonus, pick me ups, along the way.
 
