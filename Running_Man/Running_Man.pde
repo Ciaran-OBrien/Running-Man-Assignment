@@ -9,12 +9,12 @@ void setup() {
   highScore = new Table();
   highScore.clearRows();
   highScore.addColumn("Scores");
-  
 
+  marioBg = loadImage("images/backgrounds/mario/mario.png");
 
 }
 
-PImage playerSkin;
+PImage playerSkin,marioBg;
 int horizon = 800, speed = 30, direction = 1, numOfSkins = 5;
 float posX , posY = horizon;
 String time = "000",character;
@@ -34,11 +34,11 @@ void draw() {
   
   if(menu()){
   println("GAME RUNNING");
-  background(205);
+  imageMode(CENTER);
+  image(marioBg,width/2,height/2,1000,1000);
   drawCharacter();
   timer(); // Start timer at start of programe for now
   falling();
-  
   collision();
   }
 }
@@ -46,6 +46,7 @@ void draw() {
 
 boolean menu(){
     
+    fill(0);
     textSize(32);
     textAlign(CENTER);
     text("Please enter the number of the character you'd like to play\n1.Mario\n2.Sonic\n3.Pacman",width/2,height/2);
