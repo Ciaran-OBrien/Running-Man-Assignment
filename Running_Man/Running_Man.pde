@@ -1,7 +1,7 @@
 void setup() {
 
   size(1000,1000);
-  frameRate(24);
+  frameRate(60);
 
 
   
@@ -15,7 +15,7 @@ void setup() {
 }
 
 PImage playerSkin;
-int horizon = 800, speed = 10, direction = 1, numOfSkins = 5;
+int horizon = 800, speed = 30, direction = 1, numOfSkins = 5;
 float posX , posY = horizon;
 String time = "000",character;
 PImage[] skins = new PImage[numOfSkins];
@@ -26,7 +26,7 @@ Table highScore;
 
 float x0 = 200;
 float y0 = 0;
-float y0_speed=5;
+float y0_speed=20;
 int r = (int)random(1,3);
 
 void draw() {
@@ -52,7 +52,16 @@ boolean menu(){
 
     if (key == '1'){
       character = "mario";
-      
+      return true;
+    }
+    
+    else if (key == '2'){
+      character = "sonic";
+      return true;
+    }
+    
+    else if (key == '3'){
+      character = "pacman";
       return true;
     }
     
@@ -76,22 +85,22 @@ void drawCharacter(){
    }
 
   // Character standing facing right
-  if((frameCount/4)%2==0 && direction == 1){
+  if((frameCount/2)%2==0 && direction == 1){
     playerSkin = skins[1];
   }
   
   // Character runnning facing right
-  else if ((frameCount/4)%2!=0 && direction == 1){
+  else if ((frameCount/2)%2!=0 && direction == 1){
     playerSkin = skins[2];
   }
   
   // Characater standing facing left
-  if((frameCount/4)%2==0 && direction == -1){
+  if((frameCount/2)%2==0 && direction == -1){
     playerSkin = skins[3];
   }
   
   // Character standing facing left
-  else if ((frameCount/4)%2!=0 && direction == -1){
+  else if ((frameCount/2)%2!=0 && direction == -1){
     playerSkin = skins[4];
   }
 
