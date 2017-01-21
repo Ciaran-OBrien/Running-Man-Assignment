@@ -11,10 +11,11 @@ void setup() {
   highScore.addColumn("Scores");
 
   marioBg = loadImage("images/backgrounds/mario/mario.png");
+  gameOverBg = loadImage("images/backgrounds/gameOver/gameOver.png");
 
 }
 
-PImage playerSkin,marioBg;
+PImage playerSkin,marioBg,gameOverBg;
 int horizon = 800, speed = 30, direction = 1, numOfSkins = 5;
 float posX , posY = horizon;
 String time = "000",character;
@@ -137,12 +138,15 @@ void collision(){
       x0 + enemyXBorder >= posX-characterXBorder && //Brigth enemy and Tleft char
       x0 - enemyXBorder <= posX + characterXBorder //BLeft enemy and Tright char
       ){
-        
+        imageMode(CENTER);
+        image(gameOverBg,width/2,height/2,1000,1000);
         println("Game Over");
         TableRow value = highScore.addRow();
         value.setString("Scores",time);
         saveTable(highScore,"data/highScores.csv");
         noLoop();
+        delay(3000);
+        draw();
   }
 
 }
