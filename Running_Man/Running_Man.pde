@@ -1,8 +1,10 @@
+// Decleration of each class
 CharacterObject characters;
 Player newPlayer;
 Menu startMenu;
 Enemy enemies;
 Background background;
+
 // Declaring all images
 PImage playerSkin;
 PImage[] marioEnemies;  
@@ -11,25 +13,28 @@ PImage[] sonicSkins;
 PImage[] pacmanSkins;
 PImage[] backgrounds;
 
+// Variables for the image arrays, based on the number of characters
 int numOfSkins = 5,numOfBackgrounds = 5;
 
 
 void setup() {
   size(2000,1000);
   //fullScreen();
+  // Instances of each class
   characters = new CharacterObject();
   newPlayer = new Player();
   startMenu = new Menu();
   enemies = new Enemy();
   background = new Background();
   
-  // Inisialling all images
+  // Instances of all images
   marioEnemies = new PImage[numOfSkins];
   marioSkins = new PImage[numOfSkins];
   sonicSkins = new PImage[numOfSkins];
   pacmanSkins = new PImage[numOfSkins];
   backgrounds = new PImage[numOfBackgrounds];
    
+  // Loading all of the charater's skins
   for(int i = 1; i < numOfSkins;i++){
     marioEnemies[i] = loadImage("images/enemy/enemy" + i + ".png");
     marioSkins[i] = loadImage("images/characters/mario/mario" + i + ".png");
@@ -37,8 +42,8 @@ void setup() {
     pacmanSkins[i] = loadImage("images/characters/pacman/pacman" + i + ".png");
   }
   
+  // Loading all the background images to the game
   for (int i=1; i<numOfBackgrounds; i++){
-    // Load all the backgrounds images to the game
     backgrounds[i] = loadImage("images/backgrounds/bg" + i + ".png");     
   }
 }
@@ -56,6 +61,7 @@ void draw() {
   if(characterRunning){
       background(205);
       if (userChoice =="mario"){
+        // Calling all the relavent mario methods
         background(backgrounds[1]);
         newPlayer.loadMario();
         newPlayer.movePlayer();
@@ -65,11 +71,13 @@ void draw() {
      }
         
       else if (userChoice == "sonic"){
+        // Calling all the relavent sonic methods
         background(backgrounds[2]);
         newPlayer.loadSonic();
         newPlayer.movePlayer();
       }
       else if(userChoice == "pacman"){
+        // Calling all the relavent pacman methods
         newPlayer.loadPacman();
         newPlayer.movePlayer();
       }
@@ -82,6 +90,7 @@ void draw() {
   
 }
 
+// Current collision is only for mario, and mario enemy number 1
 void collision(){
   int enemyYBorder = 50,enemyXBorder = 25, characterXBorder = 20, characterBorder = 70;
   //strokeWeight(15);
