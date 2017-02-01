@@ -1,6 +1,6 @@
 class Collision{
   
-  int enemyYBorder = 50,enemyXBorder = 25, characterXBorder = 20, characterBorder = 70;
+  int enemyYBorder = 30,enemyXBorder = 20, characterXBorder = 20, characterBorder = 70;
   float enemyY,enemyX,characterX,characterY;
   
   Collision(){
@@ -20,7 +20,7 @@ class Collision{
   }
    
   void setEnemyY(float posY){
-    enemyY = posY;
+    enemyY = posY - speedMultiplier;
   }
   
   void marioCollision(){
@@ -31,7 +31,13 @@ class Collision{
     line(characterX,characterY,characterX,characterY-characterBorder);  
     line(characterX,characterY-characterBorder,characterX+characterXBorder,characterY-characterBorder); // Line to the right
     line(characterX,characterY-characterBorder,characterX-characterXBorder,characterY-characterBorder); // Line to the left
-
+    if (enemyY + enemyYBorder >= characterY - characterBorder &&// Y line border
+        enemyX + enemyXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
+        enemyX - enemyXBorder <= characterX + characterXBorder //BLeft enemy and Tright char
+        ){
+          background(backgrounds[3]);
+          noLoop();
+        } // end of nested if
   }
   void sonicCollision(){
   

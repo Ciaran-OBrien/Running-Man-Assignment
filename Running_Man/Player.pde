@@ -34,6 +34,9 @@ class Player extends CharacterObject{
     return direction;
   }
   
+  float getSpeed(){
+    return speed;
+  }
   void setDirection(float newDirection){
     direction = newDirection;
   }

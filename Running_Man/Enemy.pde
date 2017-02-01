@@ -34,7 +34,7 @@ class Enemy extends CharacterObject{
   
   void loadMarioEnemy(){
   imageMode(CENTER);
-  image(marioEnemies[enemyIndex],x0,y0,100,100);
+  image(marioEnemies[1],x0,y0,100,100);
   }
   
   void loadSonicEnemy(){

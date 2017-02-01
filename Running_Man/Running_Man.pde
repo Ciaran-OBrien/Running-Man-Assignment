@@ -5,6 +5,7 @@ Menu startMenu;
 Enemy enemies;
 Background background;
 Collision detect;
+Timer score;
 
 // Declaring all images
 PImage playerSkin;
@@ -13,10 +14,12 @@ PImage[] marioSkins;
 PImage[] sonicSkins;
 PImage[] pacmanSkins;
 PImage[] backgrounds;
+PImage[] bonus;
 
 // Variables for the image arrays, based on the number of characters
 int numOfSkins = 5,numOfBackgrounds = 5, speedMultiplier = 0; // This multiplier busisness is to do with increasing the speed, and then subtractied form the collission detction in order to keep the x/y coordinates the same as before
-
+// Save the highscore to a table
+Table highScore;
 
 void setup() {
   size(2000,1000);
@@ -29,6 +32,7 @@ void setup() {
   enemies = new Enemy();
   background = new Background();
   detect = new Collision();
+  score = new Timer();
   
   // Instances of all images
   marioEnemies = new PImage[numOfSkins];
@@ -36,13 +40,15 @@ void setup() {
   sonicSkins = new PImage[numOfSkins];
   pacmanSkins = new PImage[numOfSkins];
   backgrounds = new PImage[numOfBackgrounds];
-   
+  bonus = new PImage[numOfSkins];
+  
   // Loading all of the charater's skins
   for(int i = 1; i < numOfSkins;i++){
     marioEnemies[i] = loadImage("images/enemy/enemy" + i + ".png");
     marioSkins[i] = loadImage("images/characters/mario/mario" + i + ".png");
     sonicSkins[i] = loadImage("images/characters/sonic/sonic" + i + ".png");
     pacmanSkins[i] = loadImage("images/characters/pacman/pacman" + i + ".png");
+    bonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
   }
   
   // Loading all the background images to the game
@@ -66,6 +72,9 @@ void draw() {
       if (userChoice =="mario"){
         // Calling all the relavent mario methods
         background(backgrounds[1]);
+        score.display();
+        score.createTable();
+        score.writeScore();
         newPlayer.loadMario();
         newPlayer.movePlayer();
         enemies.loadMarioEnemy();
@@ -75,7 +84,6 @@ void draw() {
         detect.setCharacterX(newPlayer.getPlayerX());
         detect.setCharacterY(newPlayer.getPlayerY());
         detect.marioCollision();
-        //collision();
      }
         
       else if (userChoice == "sonic"){
@@ -88,14 +96,12 @@ void draw() {
         // Calling all the relavent pacman methods
         newPlayer.loadPacman();
         newPlayer.movePlayer();
+
       }
       else{
         println("ERROR");
       }
-  }
-  //mario.move();
-  //mario.loadMario();
-  
+  } 
 }
 
 // Make this a separate class !!!
@@ -162,7 +168,7 @@ void mousePressed(){
 void keyPressed(){
   if(key == 's'){
     speed = true;
-    speedMultiplier = speedMultiplier + 30; // No work, needs more work
+    speedMultiplier = speedMultiplier + 10; // It now kinda work
   }
   
 }
