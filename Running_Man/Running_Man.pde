@@ -58,7 +58,7 @@ void setup() {
 }
 
 String userChoice = "";
-boolean characterRunning,speed;
+boolean characterRunning,speed,gameOver = false;
 
 
 
@@ -124,6 +124,7 @@ void collision(){
       enemies.getEnemyX() + enemyXBorder >= newPlayer.getPlayerX()-characterXBorder && //Brigth enemy and Tleft char
       enemies.getEnemyX() - enemyXBorder <= newPlayer.getPlayerX() + characterXBorder //BLeft enemy and Tright char
       ){
+        gameOver = true;
         background(backgrounds[3]);
         noLoop();
       }//end of nested if
@@ -141,6 +142,7 @@ void collision(){
       enemies.getEnemyX() + enemyXBorder >= newPlayer.getPlayerX()-characterXBorder && //Brigth enemy and Tleft char
       enemies.getEnemyX() - enemyXBorder <= newPlayer.getPlayerX() + characterXBorder //BLeft enemy and Tright char
       ){
+        gameOver = true;
         background(backgrounds[3]);
         noLoop();
       } // end of nested if
