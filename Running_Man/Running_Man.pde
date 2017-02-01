@@ -58,7 +58,7 @@ void setup() {
 }
 
 String userChoice = "";
-boolean characterRunning,speed,gameOver = false;
+boolean characterRunning,speed,gameOver;
 
 
 
@@ -74,7 +74,7 @@ void draw() {
         background(backgrounds[1]);
         score.display();
         score.createTable();
-        score.writeScore();
+
         newPlayer.loadMario();
         newPlayer.movePlayer();
         enemies.loadMarioEnemy();

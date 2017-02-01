@@ -22,13 +22,9 @@ class Timer{
   }
 
   void writeScore(){
-    if(gameOver){
+      println("Score saved");
       TableRow value = highScore.addRow();
       value.setString("Scores",time);
       saveTable(highScore,"data/highScores.csv");
-    }
-    else{ // Should never reach this part
-      println("Error");
-    }
   }
 }

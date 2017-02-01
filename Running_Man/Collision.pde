@@ -35,6 +35,8 @@ class Collision{
         enemyX + enemyXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
         enemyX - enemyXBorder <= characterX + characterXBorder //BLeft enemy and Tright char
         ){
+          //Save the score when a hit collision has been registered
+          score.writeScore();
           background(backgrounds[3]);
           noLoop();
         } // end of nested if
