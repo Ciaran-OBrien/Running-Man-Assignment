@@ -14,11 +14,12 @@ PImage[] pacmanSkins;
 PImage[] backgrounds;
 
 // Variables for the image arrays, based on the number of characters
-int numOfSkins = 5,numOfBackgrounds = 5;
+int numOfSkins = 5,numOfBackgrounds = 5, speedMultiplier = 0; // This multiplier busisness is to do with increasing the speed, and then subtractied form the collission detction in order to keep the x/y coordinates the same as before
 
 
 void setup() {
   size(2000,1000);
+  //frameRate(10);
   //fullScreen();
   // Instances of each class
   characters = new CharacterObject();
@@ -49,7 +50,7 @@ void setup() {
 }
 
 String userChoice = "";
-boolean characterRunning;
+boolean characterRunning,speed;
 
 
 
@@ -90,25 +91,47 @@ void draw() {
   
 }
 
+// Make this a separate class !!!
 // Current collision is only for mario, and mario enemy number 1
 void collision(){
   int enemyYBorder = 50,enemyXBorder = 25, characterXBorder = 20, characterBorder = 70;
   //strokeWeight(15);
-  // // Enemy test lines
-  // line(enemies.getEnemyX(),enemies.getEnemyY(),enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder);
-  // line(enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder,enemies.getEnemyX()+enemyXBorder,enemies.getEnemyY()+enemyYBorder); // Line to the right
-  // line(enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder,enemies.getEnemyX()-enemyXBorder,enemies.getEnemyY()+enemyYBorder); // Line to the left
-  // // Chacter test lines
-  // line(newPlayer.getPlayerX(),newPlayer.getPlayerY(),newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder);  
-  // line(newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder,newPlayer.getPlayerX()+characterXBorder,newPlayer.getPlayerY()-characterBorder); // Line to the right
-  // line(newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder,newPlayer.getPlayerX()-characterXBorder,newPlayer.getPlayerY()-characterBorder); // Line to the left
+  if(speed){
+    enemyYBorder = enemyYBorder - speedMultiplier*2;
+    //characterBorder = characterBorder - speedMultiplier;
+      // // Enemy test lines
+   line(enemies.getEnemyX(),enemies.getEnemyY(),enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder);
+   line(enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder,enemies.getEnemyX()+enemyXBorder,enemies.getEnemyY()+enemyYBorder); // Line to the right
+   line(enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder,enemies.getEnemyX()-enemyXBorder,enemies.getEnemyY()+enemyYBorder); // Line to the left
+   // Chacter test lines
+   line(newPlayer.getPlayerX(),newPlayer.getPlayerY(),newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder);  
+   line(newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder,newPlayer.getPlayerX()+characterXBorder,newPlayer.getPlayerY()-characterBorder); // Line to the right
+   line(newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder,newPlayer.getPlayerX()-characterXBorder,newPlayer.getPlayerY()-characterBorder); // Line to the left
    if (enemies.getEnemyY() + enemyYBorder >= newPlayer.getPlayerY() - characterBorder &&// Y line border
       enemies.getEnemyX() + enemyXBorder >= newPlayer.getPlayerX()-characterXBorder && //Brigth enemy and Tleft char
       enemies.getEnemyX() - enemyXBorder <= newPlayer.getPlayerX() + characterXBorder //BLeft enemy and Tright char
       ){
         background(backgrounds[3]);
         noLoop();
-      }
+      }//end of nested if
+  } // end of if
+  else{
+  // // Enemy test lines
+   line(enemies.getEnemyX(),enemies.getEnemyY(),enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder);
+   line(enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder,enemies.getEnemyX()+enemyXBorder,enemies.getEnemyY()+enemyYBorder); // Line to the right
+   line(enemies.getEnemyX(),enemies.getEnemyY()+enemyYBorder,enemies.getEnemyX()-enemyXBorder,enemies.getEnemyY()+enemyYBorder); // Line to the left
+   // Chacter test lines
+   line(newPlayer.getPlayerX(),newPlayer.getPlayerY(),newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder);  
+   line(newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder,newPlayer.getPlayerX()+characterXBorder,newPlayer.getPlayerY()-characterBorder); // Line to the right
+   line(newPlayer.getPlayerX(),newPlayer.getPlayerY()-characterBorder,newPlayer.getPlayerX()-characterXBorder,newPlayer.getPlayerY()-characterBorder); // Line to the left
+   if (enemies.getEnemyY() + enemyYBorder >= newPlayer.getPlayerY() - characterBorder &&// Y line border
+      enemies.getEnemyX() + enemyXBorder >= newPlayer.getPlayerX()-characterXBorder && //Brigth enemy and Tleft char
+      enemies.getEnemyX() - enemyXBorder <= newPlayer.getPlayerX() + characterXBorder //BLeft enemy and Tright char
+      ){
+        background(backgrounds[3]);
+        noLoop();
+      } // end of nested if
+  }// end of else
 }
 
 void mousePressed(){
@@ -127,4 +150,12 @@ void mousePressed(){
   else{
     newPlayer.setDirection(1);
   }
+}
+
+void keyPressed(){
+  if(key == 's'){
+    speed = true;
+    speedMultiplier = speedMultiplier + 30; // No work, needs more work
+  }
+  
 }
