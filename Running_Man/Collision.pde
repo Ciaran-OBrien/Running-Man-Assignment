@@ -1,21 +1,25 @@
 class Collision{
   
-  float enemyY,enemyX,characterX,characterY = 800;
+  float enemyY,enemyX,characterX,characterY;
   
   Collision(){
   
   }
   
-  void getCharacterX(float posX){
-    posX = characterX;
+  void setCharacterX(float posX){
+    characterX = posX;
   }
   
-  void getEnemyX(float posX){
-    
+  void setCharacterY(float posY){
+    characterY = posY;
+  }
+  
+  void setEnemyX(float posX){
+    enemyX = posX; 
   }
    
-  void getEnemyY(float posY){
-    
+  void setEnemyY(float posY){
+    enemyY = posY;
   }
   
   void marioCollision(){

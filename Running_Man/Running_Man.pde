@@ -4,6 +4,7 @@ Player newPlayer;
 Menu startMenu;
 Enemy enemies;
 Background background;
+Collision detect;
 
 // Declaring all images
 PImage playerSkin;
@@ -27,6 +28,7 @@ void setup() {
   startMenu = new Menu();
   enemies = new Enemy();
   background = new Background();
+  detect = new Collision();
   
   // Instances of all images
   marioEnemies = new PImage[numOfSkins];
@@ -68,7 +70,12 @@ void draw() {
         newPlayer.movePlayer();
         enemies.loadMarioEnemy();
         enemies.moveEnemy();
-        collision();
+        detect.setEnemyX(enemies.getEnemyX());
+        detect.setEnemyY(enemies.getEnemyY());
+        detect.setCharacterX(newPlayer.getPlayerX());
+        detect.setCharacterY(newPlayer.getPlayerY());
+        detect.marioCollision();
+        //collision();
      }
         
       else if (userChoice == "sonic"){
