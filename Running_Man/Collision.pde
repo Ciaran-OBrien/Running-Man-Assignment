@@ -32,7 +32,7 @@ class Collision {
     bonusY = posY;
   }
 
-  void marioCollision() {
+  void collision() {
     line(enemyX, enemyY, enemyX, enemyY+enemyYBorder);
     line(enemyX, enemyY+enemyYBorder, enemyX+enemyXBorder, enemyY+enemyYBorder); // Line to the right
     line(enemyX, enemyY+enemyYBorder, enemyX-enemyXBorder, enemyY+enemyYBorder); // Line to the left

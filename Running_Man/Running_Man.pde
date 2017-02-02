@@ -1,4 +1,4 @@
-/// Decleration of each class
+// Decleration of each class
 CharacterObject characters;
 Player newPlayer;
 Menu startMenu;
@@ -101,12 +101,26 @@ void draw() {
       detect.setCharacterY(newPlayer.getPlayerY());
       detect.setBonusX(item.getBonusX());
       detect.setBonusY(item.getBonusY());
-      detect.marioCollision();
+      detect.collision();
     } else if (userChoice == "sonic") {
       // Calling all the relavent sonic methods
       background.loadSonicBg();
-      newPlayer.loadSonic();
+      score.createTable();
+      score.setTime();
+      score.display();
       newPlayer.movePlayer();
+      newPlayer.loadSonic();
+      enemies.loadSonicEnemy();
+      enemies.moveEnemy();
+      item.moveBonus();
+      item.loadSonicBonus();
+      detect.setEnemyX(enemies.getEnemyX());
+      detect.setEnemyY(enemies.getEnemyY());
+      detect.setCharacterX(newPlayer.getPlayerX());
+      detect.setCharacterY(newPlayer.getPlayerY());
+      detect.setBonusX(item.getBonusX());
+      detect.setBonusY(item.getBonusY());
+      detect.collision();
     } else if (userChoice == "pacman") {
       // Calling all the relavent pacman methods
       newPlayer.loadPacman();
