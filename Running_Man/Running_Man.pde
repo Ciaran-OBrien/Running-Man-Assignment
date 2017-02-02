@@ -77,12 +77,12 @@ void draw() {
   startMenu.load();
   startMenu.textBorders();
   if(characterRunning){
-      background(205);
       if (userChoice =="mario"){
         // Calling all the relavent mario methods
-        score.display();
-        score.createTable();
         background.loadMarioBg();
+        score.createTable();
+        score.setTime();
+        score.display();
         newPlayer.movePlayer();
         newPlayer.loadMario();
         enemies.loadMarioEnemy();

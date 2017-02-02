@@ -1,16 +1,16 @@
 class Bonus extends CharacterObject{
 
-  int numOfSkins, horizon,bonusIndex;
+  int numOfSkins,bonusIndex,bonusValue;
   float x0,y0,y0_speed;
 
   Bonus(){
     super();
     numOfSkins = 5;
-    horizon = 800;
     bonusIndex = (int)random(1,4);
     x0 = 200;
     y0 = 0;
     y0_speed = random(3,8);
+    bonusValue = 10;
   }
   
   void moveBonus(){
@@ -41,6 +41,8 @@ class Bonus extends CharacterObject{
   float getBonusX(){return x0;}
   
   float getBonusY(){return y0;}
+  
+
   
 
 

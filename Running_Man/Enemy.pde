@@ -1,6 +1,6 @@
 class Enemy extends CharacterObject{
 
-  int numOfSkins, horizon,enemyIndex;
+  int numOfSkins,enemyIndex;
   float x0,y0,y0_speed;
 
   //PImage[] marioEnemies;
@@ -12,9 +12,8 @@ class Enemy extends CharacterObject{
     //  marioEnemies[i] = loadImage("images/enemy/enemy" + i + ".png");
     //}
     numOfSkins = 5;
-    horizon = 800;
     enemyIndex = (int)random(1,4);
-    x0 = 200;
+    x0 = random(width);
     y0 = 0;
     y0_speed = 10;
   }

@@ -1,5 +1,5 @@
 class Player extends CharacterObject{
-  int numOfSkins = 5,speed = 10, horizon = 800;
+  int numOfSkins = 5,speed = 10;
   float posX, direction = 1;
 
 //  PImage playerSkin;
