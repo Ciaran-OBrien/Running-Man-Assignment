@@ -14,7 +14,9 @@ PImage[] marioSkins;
 PImage[] sonicSkins;
 PImage[] pacmanSkins;
 PImage[] backgrounds;
-PImage[] bonus;
+PImage[] marioBonus;
+PImage[] sonicBonus;
+PImage[] pacmanBonus;
 
 // Variables for the image arrays, based on the number of characters
 int numOfSkins = 5,numOfBackgrounds = 5, speedMultiplier = 0; // This multiplier busisness is to do with increasing the speed, and then subtractied form the collission detction in order to keep the x/y coordinates the same as before
@@ -40,7 +42,10 @@ void setup() {
   sonicSkins = new PImage[numOfSkins];
   pacmanSkins = new PImage[numOfSkins];
   backgrounds = new PImage[numOfBackgrounds];
-  bonus = new PImage[numOfSkins];
+  marioBonus = new PImage[numOfSkins];
+  sonicBonus = new PImage[numOfSkins];
+  pacmanBonus = new PImage[numOfSkins];
+
   
   // Loading all of the charater's skins
   for(int i = 1; i < numOfSkins;i++){
@@ -48,7 +53,9 @@ void setup() {
     marioSkins[i] = loadImage("images/characters/mario/mario" + i + ".png");
     sonicSkins[i] = loadImage("images/characters/sonic/sonic" + i + ".png");
     pacmanSkins[i] = loadImage("images/characters/pacman/pacman" + i + ".png");
-    bonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
+    marioBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
+    sonicBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
+    pacmanBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
   }
   
   // Loading all the background images to the game
@@ -71,12 +78,11 @@ void draw() {
       background(205);
       if (userChoice =="mario"){
         // Calling all the relavent mario methods
-        background(backgrounds[1]);
         score.display();
         score.createTable();
-
-        newPlayer.loadMario();
+        background.loadMarioBg();
         newPlayer.movePlayer();
+        newPlayer.loadMario();
         enemies.loadMarioEnemy();
         enemies.moveEnemy();
         detect.setEnemyX(enemies.getEnemyX());
@@ -88,7 +94,7 @@ void draw() {
         
       else if (userChoice == "sonic"){
         // Calling all the relavent sonic methods
-        background(backgrounds[2]);
+        background.loadSonicBg();
         newPlayer.loadSonic();
         newPlayer.movePlayer();
       }

@@ -12,17 +12,13 @@ class Background{
 
   }
   
-  void setBg(){
-    if (userChoice == "mario"){
-      //loadMarioBg();
-    }
-  }
-  
+  // When called, sets background to Mario's background
   void loadMarioBg(){
-    image(backgrounds[1],width/2,height/2,1000,1000);
+    background(backgrounds[1]);    
   }
-  
+  // When called, sets background to Sonic's background  
   void loadSonicBg(){
+    background(backgrounds[2]);
   }
   
   void loadPacmanBg(){

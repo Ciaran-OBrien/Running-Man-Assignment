@@ -1,7 +1,6 @@
 class Enemy extends CharacterObject{
 
-  int numOfSkins = 5, horizon = 800;
-  int enemyIndex;
+  int numOfSkins, horizon,enemyIndex;
   float x0,y0,y0_speed;
 
   //PImage[] marioEnemies;
@@ -12,8 +11,9 @@ class Enemy extends CharacterObject{
     //for(int i = 1; i < numOfSkins;i++){
     //  marioEnemies[i] = loadImage("images/enemy/enemy" + i + ".png");
     //}
-    // Ensuring the enemy skin is randomly selected
-    enemyIndex = (int)random(1,3);
+    numOfSkins = 5;
+    horizon = 800;
+    enemyIndex = (int)random(1,4);
     x0 = 200;
     y0 = 0;
     y0_speed = 10;
@@ -24,7 +24,7 @@ class Enemy extends CharacterObject{
       y0 = -30;
       x0 = random(width); 
       y0_speed = 10 + speedMultiplier;//random(3,7); 
-      enemyIndex = (int)random(1,3);
+      enemyIndex  = (int)random(1,4);
     }
     
     
@@ -33,8 +33,9 @@ class Enemy extends CharacterObject{
   } 
   
   void loadMarioEnemy(){
+
   imageMode(CENTER);
-  image(marioEnemies[1],x0,y0,100,100);
+  image(marioEnemies[enemyIndex],x0,y0,100,100); 
   }
   
   void loadSonicEnemy(){
