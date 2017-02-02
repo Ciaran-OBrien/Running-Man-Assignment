@@ -9,13 +9,13 @@ Running man is a side scrolling action game that follows you, The Man, running f
 
 ### TODO
 - [ ] Images
-![Progress](http://progressed.io/bar/30?title=progress)
+![Progress](http://progressed.io/bar/90?title=progress)
 
 - [ ] Power Ups
-![Progress](http://progressed.io/bar/0?title=progress)
+![Progress](http://progressed.io/bar/85?title=progress)
 
 - [ ] Power Downs
-![Progress](http://progressed.io/bar/0?title=progress)
+![Progress](http://progressed.io/bar/85?title=progress)
 
 - [ ] Touch Controls
 ![Progress](http://progressed.io/bar/100?title=completed)
