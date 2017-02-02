@@ -1,4 +1,4 @@
-// Decleration of each class
+/// Decleration of each class
 CharacterObject characters;
 Player newPlayer;
 Menu startMenu;
