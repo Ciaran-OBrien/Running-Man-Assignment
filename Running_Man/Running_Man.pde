@@ -6,6 +6,7 @@ Enemy enemies;
 Background background;
 Collision detect;
 Timer score;
+Bonus item;
 
 // Declaring all images
 PImage playerSkin;
@@ -35,6 +36,7 @@ void setup() {
   background = new Background();
   detect = new Collision();
   score = new Timer();
+  item  = new Bonus();
   
   // Instances of all images
   marioEnemies = new PImage[numOfSkins];
@@ -54,8 +56,8 @@ void setup() {
     sonicSkins[i] = loadImage("images/characters/sonic/sonic" + i + ".png");
     pacmanSkins[i] = loadImage("images/characters/pacman/pacman" + i + ".png");
     marioBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
-    sonicBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
-    pacmanBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
+    //sonicBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
+    //pacmanBonus[i] = loadImage("images/bonus/mario/bonus" + i + ".png");
   }
   
   // Loading all the background images to the game
@@ -85,10 +87,14 @@ void draw() {
         newPlayer.loadMario();
         enemies.loadMarioEnemy();
         enemies.moveEnemy();
+        item.moveBonus();
+        item.loadMarioBonus();
         detect.setEnemyX(enemies.getEnemyX());
         detect.setEnemyY(enemies.getEnemyY());
         detect.setCharacterX(newPlayer.getPlayerX());
         detect.setCharacterY(newPlayer.getPlayerY());
+        detect.setBonusX(item.getBonusX());
+        detect.setBonusY(item.getBonusY());
         detect.marioCollision();
      }
         

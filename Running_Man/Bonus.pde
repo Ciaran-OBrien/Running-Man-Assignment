@@ -10,7 +10,7 @@ class Bonus extends CharacterObject{
     bonusIndex = (int)random(1,4);
     x0 = 200;
     y0 = 0;
-    y0_speed = 10;
+    y0_speed = random(3,8);
   }
   
   void moveBonus(){
