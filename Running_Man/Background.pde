@@ -22,6 +22,7 @@ class Background{
   }
   
   void loadPacmanBg(){
+    background(backgrounds[4]);
   }
   
   void loadEndGameBg(){

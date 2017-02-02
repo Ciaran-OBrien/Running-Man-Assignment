@@ -42,6 +42,8 @@ class Enemy extends CharacterObject {
   }
 
   void loadPacmanEnemy() {
+          imageMode(CENTER);
+  image(pacmanEnemies[enemyIndex],x0,y0,100,100);
   }
 
   float getEnemyX() {

@@ -123,8 +123,23 @@ void draw() {
       detect.collision();
     } else if (userChoice == "pacman") {
       // Calling all the relavent pacman methods
-      newPlayer.loadPacman();
+      background.loadPacmanBg();
+      score.createTable();
+      score.setTime();
+      score.display();
       newPlayer.movePlayer();
+      newPlayer.loadPacman();
+      enemies.loadPacmanEnemy();
+      enemies.moveEnemy();
+      item.moveBonus();
+      item.loadPacmanBonus();
+      detect.setEnemyX(enemies.getEnemyX());
+      detect.setEnemyY(enemies.getEnemyY());
+      detect.setCharacterX(newPlayer.getPlayerX());
+      detect.setCharacterY(newPlayer.getPlayerY());
+      detect.setBonusX(item.getBonusX());
+      detect.setBonusY(item.getBonusY());
+      detect.collision();
     } else {
       println("ERROR");
     }

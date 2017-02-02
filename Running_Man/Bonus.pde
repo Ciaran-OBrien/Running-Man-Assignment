@@ -32,12 +32,14 @@ class Bonus extends CharacterObject {
   }
 
   void loadSonicBonus() {
-    
-  imageMode(CENTER);
-  image(sonicBonus[bonusIndex],x0,y0,100,100); 
+
+    imageMode(CENTER);
+    image(sonicBonus[bonusIndex], x0, y0, 100, 100);
   }
 
   void loadPacmanBonus() {
+    imageMode(CENTER);
+    image(pacmanBonus[bonusIndex], x0, y0, 100, 100);
   }
 
   float getBonusX() {
