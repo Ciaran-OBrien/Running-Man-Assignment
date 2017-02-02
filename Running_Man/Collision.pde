@@ -59,14 +59,16 @@ class Collision {
       bonusX + bonusXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
       bonusX - bonusXBorder <= characterX + characterXBorder //BLeft enemy and Tright char
       ) {
-      println("Bonus hit");
       bonusHit = true;
       count++;
+      println("Bonus hit");
       //score.bonusIncrease(10);
     } // end of nested if
 
     else {
+      count = 0;
       bonusHit = false;
+      println("No Bonus hit");
     }
   }
   void sonicCollision() {

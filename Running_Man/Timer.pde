@@ -24,8 +24,9 @@ class Timer {
   
   void setTime(){
     if(detect.bonusHit()){
-      localBonus += 10;
+      localBonus += 10;  
     }
+    
   }
   void display(){
 
