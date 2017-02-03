@@ -26,15 +26,31 @@ class Menu {
 
   void pause() {
     fill(0);
-    textFont(text);
     textSize(50);
     textAlign(CENTER);
     text("PAUSE", width*9/10, height*1/10);
-    //return false;
   }
-  
+
+  void instructions() {
+    fill(0);
+    textSize(40);
+    textAlign(CENTER);
+    text("INSTRUCTIONS", width*1/10, height*1/10);
+  }
 
   boolean detection() {
+    if (mouseY < height*1/10 + 25
+      && mouseY > height*1/10 - 25
+      && mouseX < width*1/10 + 100
+      && mouseX > width*1/10 - 100
+      ) {
+      if (looping) { 
+        play.pause();
+        noLoop();
+      } else {
+        loop();
+      }
+    } 
     if (mouseY < height*1/10 + 25
       && mouseY > height*1/10 - 25
       && mouseX < width*9/10 + 100

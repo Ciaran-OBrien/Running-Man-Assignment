@@ -132,6 +132,7 @@ void draw() {
       // Calling all the relavent mario methods
       background.loadMarioBg();
       startMenu.pause();
+      startMenu.instructions();
       play.theme();
       score.createTable();
       score.setTime();
