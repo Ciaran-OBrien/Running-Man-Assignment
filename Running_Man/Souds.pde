@@ -44,10 +44,11 @@ class Sounds {
 
   void pause() {
     if (userChoice == "mario") {
-      println("Paused mario sound");
-      marioThemeMus.pause()
-;    } else if (userChoice == "sonic") {
+      marioThemeMus.pause();
+    } else if (userChoice == "sonic") {
+      sonicThemeMus.pause();
     } else if (userChoice == "pacman") {
+      pacmanThemeMus.pause();
     }
   }
 }

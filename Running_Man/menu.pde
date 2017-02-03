@@ -51,7 +51,6 @@ class Menu {
       && mouseY > (height*6/10 - 35) 
       && mouseX < width/2 + 100 
       && mouseX > width/2 - 100) {
-      println("Hovering over mario");
       userChoice = "mario";
 
       return true;
@@ -60,7 +59,6 @@ class Menu {
       && mouseY > (height*7/10 - 35) 
       && mouseX < width/2 + 100 
       && mouseX > width/2 - 100) {
-
       userChoice = "sonic";
       return true;
     }
