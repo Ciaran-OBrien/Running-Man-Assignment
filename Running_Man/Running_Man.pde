@@ -42,23 +42,14 @@ Table highScore;
 
 final static String[] fileNames = {"theme", "bonus", "death"};
 
+
+
 void setup() {
   size(2000, 1000);
   //frameRate(10);
   //fullScreen();
 
   minim = new Minim(this);
-  
-  AudioPlayer marioThemeMus = minim.loadFile("sounds/mario/theme.mp3");
-  AudioPlayer marioBonusMus = minim.loadFile("sounds/mario/bonus.mp3");
-  AudioPlayer marioDeathMus = minim.loadFile("sounds/mario/death.mp3");
-  AudioPlayer sonicThemeMus = minim.loadFile("sounds/sonic/theme.mp3");
-  AudioPlayer sonicBonusMus = minim.loadFile("sounds/sonic/bonus.mp3");
-  AudioPlayer sonicDeathMus = minim.loadFile("sounds/sonic/death.mp3");
-  AudioPlayer pacmanThemeMus = minim.loadFile("sounds/pacman/theme.mp3");
-  AudioPlayer pacmanBonusMus = minim.loadFile("sounds/pacman/bonus.mp3");
-  AudioPlayer pacmanDeathMus = minim.loadFile("sounds/pacman/death.mp3");
-
 
   // Instances of each class
   characters = new CharacterObject();
@@ -82,6 +73,16 @@ void setup() {
   pacmanBonus = new PImage[numOfSkins];
   pacmanEnemies = new PImage[numOfSkins];
   sonicEnemies = new PImage[numOfSkins];
+
+  marioThemeMus = minim.loadFile("sounds/mario/theme.mp3");
+  marioBonusMus = minim.loadFile("sounds/mario/bonus.mp3");
+  marioDeathMus = minim.loadFile("sounds/mario/death.mp3");
+  sonicThemeMus = minim.loadFile("sounds/sonic/theme.mp3");
+  sonicBonusMus = minim.loadFile("sounds/sonic/bonus.mp3");
+  sonicDeathMus = minim.loadFile("sounds/sonic/death.mp3");
+  pacmanThemeMus = minim.loadFile("sounds/pacman/theme.mp3");
+  pacmanBonusMus = minim.loadFile("sounds/pacman/bonus.mp3");
+  pacmanDeathMus = minim.loadFile("sounds/pacman/death.mp3");
 
   //  // Loading all of the game's sounds
   //  for (int i = 0; i< numOfSounds; i++) {
@@ -110,21 +111,22 @@ void setup() {
 }
 
 String userChoice = "";
-boolean characterRunning, speed, gameOver;
+boolean characterRunning, speed, gameOver, menu = true, bonusHit = false;
 int loopCount;
 
 
 void draw() {
 
-  background(205);
-  startMenu.load();
-  startMenu.textBorders();
+  if (menu) {
+    background(205);
+    startMenu.load();
+    startMenu.textBorders();
+  }
   if (characterRunning) {
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       background.loadMarioBg();
-      println(fileNames.length);
-      //play.theme();
+      play.theme();
       score.createTable();
       score.setTime();
       score.display();
@@ -232,6 +234,7 @@ void collision() {
 
 void mousePressed() {
   if (startMenu.detection() && !characterRunning) {
+    menu = false;
     characterRunning = true;
   }
   //else{
@@ -246,9 +249,15 @@ void mousePressed() {
   }
 }
 
+
 void keyPressed() {
-  if (key == 's') {
-    speed = true;
-    speedMultiplier = speedMultiplier + 10; // It now kinda work
-  }
+  final int k = keyCode;
+
+  if (k == 'S')
+    if (looping) { 
+      
+      noLoop();
+    } else {
+      loop();
+    }
 }

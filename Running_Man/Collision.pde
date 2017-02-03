@@ -2,7 +2,7 @@ class Collision {
 
   int count = 0, enemyXBorder = 30, bonusXBorder = 30, enemyYBorder = 25, bonusYBorder = 25, characterXBorder = 20, characterBorder = 70;
   float enemyY, enemyX, characterX, characterY, bonusX, bonusY;
-  boolean bonusHit;
+
 
   Collision() {
     bonusHit = false;
@@ -52,8 +52,14 @@ class Collision {
       //Save the score when a hit collision has been registered
       score.writeScore();
       background(backgrounds[3]);
-      play.dead();
+      marioThemeMus.pause();
+      marioDeathMus.play();
       noLoop();
+      
+      if (!marioDeathMus.isPlaying()) {
+        characterRunning = false;
+        menu = true;
+      }
     } // end of nested enemy/character if
 
     if (bonusY + bonusYBorder >= characterY - characterBorder &&// Y line border
@@ -63,14 +69,11 @@ class Collision {
       bonusHit = true;
       count++;
       play.bonus();
-      println("Bonus hit");
-      //score.bonusIncrease(10);
     } // end of nested if
 
     else {
       count = 0;
       bonusHit = false;
-      println("No Bonus hit");
     }
   }
   void sonicCollision() {
