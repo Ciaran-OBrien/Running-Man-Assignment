@@ -248,16 +248,3 @@ void mousePressed() {
     newPlayer.setDirection(1);
   }
 }
-
-
-void keyPressed() {
-  final int k = keyCode;
-
-  if (k == 'S')
-    if (looping) { 
-      play.pause();
-      noLoop();
-    } else {
-      loop();
-    }
-}
