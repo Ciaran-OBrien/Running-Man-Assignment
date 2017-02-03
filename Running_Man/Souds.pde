@@ -5,13 +5,16 @@ class Sounds {
 
   void theme() {
     if (userChoice == "mario") {
+
     } else if (userChoice == "sonic") {
+
     } else if (userChoice == "pacman") {
     }
   }
 
   void bonus() {
     if (userChoice == "mario") {
+
     } else if (userChoice == "sonic") {
     } else if (userChoice == "pacman") {
     }
@@ -19,6 +22,7 @@ class Sounds {
 
   void dead() {
     if (userChoice == "mario") {
+
     } else if (userChoice == "sonic") {
     } else if (userChoice == "pacman") {
     }

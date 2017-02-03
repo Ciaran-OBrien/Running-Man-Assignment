@@ -33,17 +33,17 @@ class Collision {
   }
 
   void collision() {
-    line(enemyX, enemyY, enemyX, enemyY+enemyYBorder);
-    line(enemyX, enemyY+enemyYBorder, enemyX+enemyXBorder, enemyY+enemyYBorder); // Line to the right
-    line(enemyX, enemyY+enemyYBorder, enemyX-enemyXBorder, enemyY+enemyYBorder); // Line to the left
-    // Chacter test lines
-    line(characterX, characterY, characterX, characterY-characterBorder);  
-    line(characterX, characterY-characterBorder, characterX+characterXBorder, characterY-characterBorder); // Line to the right
-    line(characterX, characterY-characterBorder, characterX-characterXBorder, characterY-characterBorder); // Line to the left
-    // Bous test lines
-    line(bonusX, bonusY, bonusX, bonusY+bonusYBorder);
-    line(bonusX, bonusY+bonusYBorder, bonusX+bonusXBorder, bonusY+bonusYBorder); // Line to the right
-    line(bonusX, bonusY+bonusYBorder, bonusX-bonusXBorder, bonusY+bonusYBorder); // Line to the left
+    //line(enemyX, enemyY, enemyX, enemyY+enemyYBorder);
+    //line(enemyX, enemyY+enemyYBorder, enemyX+enemyXBorder, enemyY+enemyYBorder); // Line to the right
+    //line(enemyX, enemyY+enemyYBorder, enemyX-enemyXBorder, enemyY+enemyYBorder); // Line to the left
+    //// Chacter test lines
+    //line(characterX, characterY, characterX, characterY-characterBorder);  
+    //line(characterX, characterY-characterBorder, characterX+characterXBorder, characterY-characterBorder); // Line to the right
+    //line(characterX, characterY-characterBorder, characterX-characterXBorder, characterY-characterBorder); // Line to the left
+    //// Bous test lines
+    //line(bonusX, bonusY, bonusX, bonusY+bonusYBorder);
+    //line(bonusX, bonusY+bonusYBorder, bonusX+bonusXBorder, bonusY+bonusYBorder); // Line to the right
+    //line(bonusX, bonusY+bonusYBorder, bonusX-bonusXBorder, bonusY+bonusYBorder); // Line to the left
 
     if (enemyY + enemyYBorder >= characterY - characterBorder &&// Y line border
       enemyX + enemyXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
@@ -52,6 +52,7 @@ class Collision {
       //Save the score when a hit collision has been registered
       score.writeScore();
       background(backgrounds[3]);
+      play.dead();
       noLoop();
     } // end of nested enemy/character if
 
@@ -61,6 +62,7 @@ class Collision {
       ) {
       bonusHit = true;
       count++;
+      play.bonus();
       println("Bonus hit");
       //score.bonusIncrease(10);
     } // end of nested if

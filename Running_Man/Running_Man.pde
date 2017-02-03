@@ -1,3 +1,16 @@
+import ddf.minim.*;
+
+Minim minim;
+AudioPlayer marioThemeMus;
+AudioPlayer marioBonusMus;
+AudioPlayer marioDeathMus;
+AudioPlayer sonicThemeMus;
+AudioPlayer sonicBonusMus;
+AudioPlayer sonicDeathMus;
+AudioPlayer pacmanThemeMus;
+AudioPlayer pacmanBonusMus;
+AudioPlayer pacmanDeathMus;
+
 // Decleration of each class
 CharacterObject characters;
 Player newPlayer;
@@ -7,6 +20,7 @@ Background background;
 Collision detect;
 Timer score;
 Bonus item;
+Sounds play;
 
 // Declaring all images, and image arrays
 PImage playerSkin;
@@ -22,14 +36,30 @@ PImage[] pacmanBonus;
 PImage[] backgrounds;
 
 // Variables for the image arrays, based on the number of characters
-int numOfSkins = 5, numOfBackgrounds = 5, speedMultiplier = 0; // This multiplier busisness is to do with increasing the speed, and then subtractied form the collission detction in order to keep the x/y coordinates the same as before
+int numOfSounds = 3, numOfSkins = 5, numOfBackgrounds = 5, speedMultiplier = 0; // This multiplier busisness is to do with increasing the speed, and then subtractied form the collission detction in order to keep the x/y coordinates the same as before
 // Save the highscore to a table
 Table highScore;
+
+final static String[] fileNames = {"theme", "bonus", "death"};
 
 void setup() {
   size(2000, 1000);
   //frameRate(10);
   //fullScreen();
+
+  minim = new Minim(this);
+  
+  AudioPlayer marioThemeMus = minim.loadFile("sounds/mario/theme.mp3");
+  AudioPlayer marioBonusMus = minim.loadFile("sounds/mario/bonus.mp3");
+  AudioPlayer marioDeathMus = minim.loadFile("sounds/mario/death.mp3");
+  AudioPlayer sonicThemeMus = minim.loadFile("sounds/sonic/theme.mp3");
+  AudioPlayer sonicBonusMus = minim.loadFile("sounds/sonic/bonus.mp3");
+  AudioPlayer sonicDeathMus = minim.loadFile("sounds/sonic/death.mp3");
+  AudioPlayer pacmanThemeMus = minim.loadFile("sounds/pacman/theme.mp3");
+  AudioPlayer pacmanBonusMus = minim.loadFile("sounds/pacman/bonus.mp3");
+  AudioPlayer pacmanDeathMus = minim.loadFile("sounds/pacman/death.mp3");
+
+
   // Instances of each class
   characters = new CharacterObject();
   newPlayer = new Player();
@@ -39,6 +69,7 @@ void setup() {
   detect = new Collision();
   score = new Timer();
   item  = new Bonus();
+  play = new Sounds();
 
   // Instances of all images
   marioEnemies = new PImage[numOfSkins];
@@ -52,6 +83,12 @@ void setup() {
   pacmanEnemies = new PImage[numOfSkins];
   sonicEnemies = new PImage[numOfSkins];
 
+  //  // Loading all of the game's sounds
+  //  for (int i = 0; i< numOfSounds; i++) {
+  //    sounds[i] = new SoundFile(this, "sounds/mario/" + fileNames[i] + ".mp3");
+  //  }
+
+  //sounds = new SoundFile(this, "death.mp3");
 
   // Loading all of the charater's skins
   for (int i = 1; i < numOfSkins; i++) {
@@ -74,7 +111,7 @@ void setup() {
 
 String userChoice = "";
 boolean characterRunning, speed, gameOver;
-
+int loopCount;
 
 
 void draw() {
@@ -86,6 +123,8 @@ void draw() {
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       background.loadMarioBg();
+      println(fileNames.length);
+      //play.theme();
       score.createTable();
       score.setTime();
       score.display();
