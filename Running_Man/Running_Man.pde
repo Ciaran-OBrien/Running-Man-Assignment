@@ -21,6 +21,7 @@ Collision detect;
 Timer score;
 Bonus item;
 Sounds play;
+Instructions instructions;
 
 PFont text;
 
@@ -63,6 +64,7 @@ void setup() {
   score = new Timer();
   item  = new Bonus();
   play = new Sounds();
+  instructions = new Instructions();
 
   // Instances of all images
   marioEnemies = new PImage[numOfSkins];
@@ -75,7 +77,7 @@ void setup() {
   pacmanBonus = new PImage[numOfSkins];
   pacmanEnemies = new PImage[numOfSkins];
   sonicEnemies = new PImage[numOfSkins];
-  
+
   text = loadFont("8bit.vlw");
 
   marioThemeMus = minim.loadFile("sounds/mario/theme.mp3");
@@ -110,12 +112,16 @@ void setup() {
 }
 
 String userChoice = "";
-boolean characterRunning, speed, gameOver, menu = true, bonusHit = false;
+boolean characterRunning, speed, gameOver, menu = true, bonusHit = false, showInstructions = false;
 int loopCount;
 
 
 void draw() {
-
+  textFont(text);
+  if (showInstructions) {
+    background(205);
+    instructions.render();
+  }
   if (menu) {
     background(205);
     startMenu.load();
@@ -201,5 +207,19 @@ void mousePressed() {
     newPlayer.setDirection(-1);
   } else {
     newPlayer.setDirection(1);
+  }
+}
+
+void keyPressed() {
+
+  if (keyCode == 'I') {
+    if (showInstructions) {
+      menu = true;
+      showInstructions = false;
+    } else {
+      //showInstructions = false; 
+      menu = false;
+      showInstructions = true;
+    }
   }
 }
