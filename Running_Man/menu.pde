@@ -32,6 +32,7 @@ class Menu {
     text("PAUSE", width*9/10, height*1/10);
     //return false;
   }
+  
 
   boolean detection() {
     if (mouseY < height*1/10 + 25
