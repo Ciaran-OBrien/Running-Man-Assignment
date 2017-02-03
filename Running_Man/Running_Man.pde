@@ -255,7 +255,7 @@ void keyPressed() {
 
   if (k == 'S')
     if (looping) { 
-      
+      play.pause();
       noLoop();
     } else {
       loop();

@@ -42,5 +42,12 @@ class Sounds {
     }
   }
 
-
+  void pause() {
+    if (userChoice == "mario") {
+      println("Paused mario sound");
+      marioThemeMus.pause()
+;    } else if (userChoice == "sonic") {
+    } else if (userChoice == "pacman") {
+    }
+  }
 }
