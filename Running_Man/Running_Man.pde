@@ -22,6 +22,8 @@ Timer score;
 Bonus item;
 Sounds play;
 
+PFont text;
+
 // Declaring all images, and image arrays
 PImage playerSkin;
 PImage[] marioSkins;
@@ -73,6 +75,8 @@ void setup() {
   pacmanBonus = new PImage[numOfSkins];
   pacmanEnemies = new PImage[numOfSkins];
   sonicEnemies = new PImage[numOfSkins];
+  
+  text = loadFont("8bit.vlw");
 
   marioThemeMus = minim.loadFile("sounds/mario/theme.mp3");
   marioBonusMus = minim.loadFile("sounds/mario/bonus.mp3");
@@ -84,12 +88,7 @@ void setup() {
   pacmanBonusMus = minim.loadFile("sounds/pacman/bonus.mp3");
   pacmanDeathMus = minim.loadFile("sounds/pacman/death.mp3");
 
-  //  // Loading all of the game's sounds
-  //  for (int i = 0; i< numOfSounds; i++) {
-  //    sounds[i] = new SoundFile(this, "sounds/mario/" + fileNames[i] + ".mp3");
-  //  }
 
-  //sounds = new SoundFile(this, "death.mp3");
 
   // Loading all of the charater's skins
   for (int i = 1; i < numOfSkins; i++) {
@@ -126,6 +125,7 @@ void draw() {
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       background.loadMarioBg();
+      startMenu.pause();
       play.theme();
       score.createTable();
       score.setTime();

@@ -23,9 +23,25 @@ class Menu {
     rect(width/2, height*7/10-textBuffer, 200, 70);
     rect(width/2, height*8/10-textBuffer, 200, 70);
   }
+  
+  void pause(){
+    fill(0);
+    textFont(text);
+    textSize(50);
+    textAlign(CENTER);
+    text("PAUSE",width*9/10,height*1/10);
+  //return false;
+  }
 
   boolean detection() {
-
+    if(mouseY < height*1/10 + 25
+    && mouseY > height*1/10 - 25
+    && mouseX < width*9/10 + 100
+    && mouseX > width*9/10 - 100
+    ){
+    println("Game paused");
+    }
+    
     if (mouseY < (height*6/10 + 35)  
       && mouseY > (height*6/10 - 35) 
       && mouseX < width/2 + 100 

@@ -21,19 +21,19 @@ class Timer {
   //  textSize(32);
   //  text("Your score: " + time, width*9/13, height*1/8);
   //}
-  
-  void setTime(){
-    if(detect.bonusHit()){
-      localBonus += 10;  
-    }
-    
-  }
-  void display(){
 
-  interval = 0;
-  t = interval + localBonus + int(millis()/1000);
-  text("Your score: " + t, width*9/13, height*1/8);
-   
+  void setTime() {
+    if (detect.bonusHit()) {
+      localBonus += 10;
+    }
+  }
+  void display() {
+    fill(255);
+    textSize(32);
+    textAlign(CENTER);
+    interval = 0;
+    t = interval + localBonus + int(millis()/1000);
+    text("Your score: " + t, width*9/13, height*1/10);
   }
 
 
