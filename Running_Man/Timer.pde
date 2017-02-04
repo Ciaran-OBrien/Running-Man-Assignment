@@ -1,5 +1,5 @@
 class Timer {
-  int t, interval, score;
+  int t, interval, score,timer;
   String time;
   int localBonus;
   Timer() {
@@ -36,7 +36,10 @@ class Timer {
     text("Your score: " + t, width*9/13, height*1/10);
   }
 
-
+  void myDelay(int ms) {
+    timer = millis();
+    while (millis()-timer < ms);
+  }
   void createTable() {
     // Create a new table to contain the high scores
     highScore = new Table();

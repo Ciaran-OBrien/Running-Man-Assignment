@@ -135,8 +135,15 @@ void draw() {
     if (showExit) {
       startMenu.exitBtn();
     }
+    // Non specific methods
     play.theme();
-
+    detect.setEnemyX(enemies.getEnemyX());
+    detect.setEnemyY(enemies.getEnemyY());
+    detect.setCharacterX(newPlayer.getPlayerX());
+    detect.setCharacterY(newPlayer.getPlayerY());
+    detect.setBonusX(item.getBonusX());
+    detect.setBonusY(item.getBonusY());
+    detect.collision();
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       background.loadMarioBg();
@@ -152,13 +159,6 @@ void draw() {
       enemies.moveEnemy();
       item.moveBonus();
       item.loadMarioBonus();
-      detect.setEnemyX(enemies.getEnemyX());
-      detect.setEnemyY(enemies.getEnemyY());
-      detect.setCharacterX(newPlayer.getPlayerX());
-      detect.setCharacterY(newPlayer.getPlayerY());
-      detect.setBonusX(item.getBonusX());
-      detect.setBonusY(item.getBonusY());
-      detect.collision();
     } else if (userChoice == "sonic") {
       // Calling all the relavent sonic methods
       background.loadSonicBg();
@@ -173,13 +173,6 @@ void draw() {
       enemies.moveEnemy();
       item.moveBonus();
       item.loadSonicBonus();
-      detect.setEnemyX(enemies.getEnemyX());
-      detect.setEnemyY(enemies.getEnemyY());
-      detect.setCharacterX(newPlayer.getPlayerX());
-      detect.setCharacterY(newPlayer.getPlayerY());
-      detect.setBonusX(item.getBonusX());
-      detect.setBonusY(item.getBonusY());
-      detect.collision();
     } else if (userChoice == "pacman") {
       // Calling all the relavent pacman methods
       background.loadPacmanBg();
@@ -194,13 +187,6 @@ void draw() {
       enemies.moveEnemy();
       item.moveBonus();
       item.loadPacmanBonus();
-      detect.setEnemyX(enemies.getEnemyX());
-      detect.setEnemyY(enemies.getEnemyY());
-      detect.setCharacterX(newPlayer.getPlayerX());
-      detect.setCharacterY(newPlayer.getPlayerY());
-      detect.setBonusX(item.getBonusX());
-      detect.setBonusY(item.getBonusY());
-      detect.collision();
     } else {
       println("ERROR");
     }
@@ -209,7 +195,7 @@ void draw() {
 
 void mousePressed() {
   println(mouseX + " "+ mouseY);
-  
+
   if (startMenu.detection() && !characterRunning) {
     menu = false;
     characterRunning = true;

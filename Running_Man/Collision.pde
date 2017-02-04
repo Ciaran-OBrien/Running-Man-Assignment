@@ -51,14 +51,13 @@ class Collision {
       ) {
       //Save the score when a hit collision has been registered
       score.writeScore();
-      background(backgrounds[3]);
       play.dead();
+      background.loadEndGameBg();
+      score.myDelay(3000);
       noLoop();
-      
-      if (!marioDeathMus.isPlaying()) {
-        characterRunning = false;
-        menu = true;
-      }
+      characterRunning = false;
+      menu = true;
+      loop();
     } // end of nested enemy/character if
 
     if (bonusY + bonusYBorder >= characterY - characterBorder &&// Y line border

@@ -39,10 +39,7 @@ class Menu {
     fill(0);
     textSize(50);
     textAlign(CENTER);
-    text("EXIT", width*5/10, height*8/10);
-    noFill();
-    rectMode(CENTER);
-    rect(width*5/10, height*8/10, 200, 50);
+    text("EXIT", width*5/10, height*5/10);
   }
 
   void instructions() {
@@ -54,15 +51,15 @@ class Menu {
 
   boolean detection() {
     if (paused//Detection of exit button
-      && mouseY < height*8/10 + 25
-      && mouseY > height*8/10 - 45
+      && mouseY < height*5/10 + 25
+      && mouseY > height*5/10 - 45
       && mouseX < width*5/10 + 100
       && mouseX > width*5/10 - 100
       ) {
       println("Exit pressed !");
       characterRunning = false;
-      menu = true;
       paused = false;
+      menu = true;
       loop();
     }
 
