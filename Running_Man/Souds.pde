@@ -10,7 +10,6 @@ class Sounds {
       sonicThemeMus.play();
     } else if (userChoice == "pacman") {
       pacmanThemeMus.play();
-
     }
   }
 
@@ -38,8 +37,14 @@ class Sounds {
 
   void dead() {
     if (userChoice == "mario") {
-    } else if (userChoice == "sonic") {
-    } else if (userChoice == "pacman") {
+      marioThemeMus.pause();
+      marioDeathMus.play();
+    } else if (userChoice == "sonic") {            
+      sonicThemeMus.pause();
+      sonicDeathMus.play();
+    } else if (userChoice == "pacman") {            
+      pacmanThemeMus.pause();
+      pacmanDeathMus.play();
     }
   }
 
