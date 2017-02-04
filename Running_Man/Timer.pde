@@ -1,11 +1,18 @@
 class Timer {
-  int t, interval, score,timer,start;
+  int t, interval, score, timer, start, ms;
   String time;
   int localBonus;
+  int startTime = millis();
+  int currentTime = 0;
+  // currentTime = millis - startTime; // getTime
+  // currentTime = 0; // resetTime
+  // startTime = millis(); // resetTime
+
   Timer() {
-    start = int(millis()/1000);
+
     time = "000";
     localBonus = 0;
+    ms = 3000;
     //t = interval;
   }
 
@@ -22,29 +29,43 @@ class Timer {
   //  textSize(32);
   //  text("Your score: " + time, width*9/13, height*1/8);
   //}
-  void setTime(){
-    
-   t = start;
-   interval = 0;
-   }
+  void update() {
+
+    currentTime = int(millis()/1000) - startTime;
+  }
+  void setTime() {
+
+    currentTime = 0; // resetTime
+
+    startTime = int(millis()/1000); // resetTime
+    println("StartTime = " + startTime);
+    println("Curent Time = " + currentTime);
+  }
+
+
 
   void setBonus() {
     if (detect.bonusHit()) {
       localBonus += 10;
     }
   }
+
+
   void display() {
+
+    println("currentTime" + currentTime);
     fill(255);
     textSize(32);
     textAlign(CENTER);
-    t = interval + localBonus + int(millis()/1000);
+    t = localBonus + currentTime;
     text("Your score: " + t, width*9/13, height*1/10);
   }
 
-  void myDelay(int ms) {
+  void myDelay() {
     timer = millis();
-    while (millis()-timer < ms);
+    while (millis() - timer < ms);
   }
+
   void createTable() {
     // Create a new table to contain the high scores
     highScore = new Table();

@@ -59,7 +59,7 @@ class Collision {
       noLoop();
       background.loadEndGameBg();
       println("after noloop, before delay");
-      score.myDelay(3000);
+      score.myDelay();
       println("after delay");
       userChoice = " ";
       gameOver = false;

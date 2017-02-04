@@ -137,7 +137,6 @@ void draw() {
     }
     // Non specific methods
 
-
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       play.theme();
@@ -147,7 +146,8 @@ void draw() {
       startMenu.instructions();
 
       score.createTable();
-      score.setTime();
+      //score.setTime();
+      score.update();
       score.setBonus();
       score.display();
 
@@ -214,7 +214,7 @@ void draw() {
       println("ERROR");
     }
   }
-}
+} // End of draw
 
 void mousePressed() {
 
