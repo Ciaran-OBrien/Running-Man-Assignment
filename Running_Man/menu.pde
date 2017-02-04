@@ -60,10 +60,10 @@ class Menu {
     fill(0);
     textSize(40);
     textAlign(CENTER);
-    text(buttons[3], width*1/10, height*1/10);
+    text(buttons[2], width*1/10, height*1/10);
     noFill();
     rectMode(CENTER);
-    rect(width*1/10, height*1/10, textWidth(buttons[3]), 2*textAscent());
+    rect(width*1/10, height*1/10, textWidth(buttons[2]), 2*textAscent());
   }
 
   boolean detection() {
@@ -83,8 +83,8 @@ class Menu {
     // Detection of the instruction button
     if (mouseY < height*1/10 + 2*textAscent()
       && mouseY > height*1/10 - 2*textAscent()
-      && mouseX < width*1/10 + textWidth(buttons[3])
-      && mouseX > width*1/10 - textWidth(buttons[3])
+      && mouseX < width*1/10 + textWidth(buttons[2])
+      && mouseX > width*1/10 - textWidth(buttons[2])
       ) {
       if (looping) { 
         instructions.render();

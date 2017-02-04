@@ -62,7 +62,7 @@ class Collision {
       score.myDelay();
       //println("after delay");
       userChoice = " ";
-      gameOver = false;
+      //gameOver = false;
       characterRunning = false;
       menu = true;
 
@@ -91,7 +91,7 @@ class Collision {
 
   boolean bonusHit() {
     if (bonusHit) {
-      if (count == 1) {
+      if (count == 3) {
         //println("Bonus count = 1");
         return true;
       } else {

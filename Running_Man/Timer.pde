@@ -30,14 +30,13 @@ class Timer {
   //  text("Your score: " + time, width*9/13, height*1/8);
   //}
   void update() {
-
+    
     currentTime = int(millis()/1000) - startTime;
   }
   void setTime() {
 
     currentTime = 0; // resetTime
     localBonus = 0;
-
     startTime = int(millis()/1000); // resetTime
     //println("StartTime = " + startTime);
     //println("Curent Time = " + currentTime);

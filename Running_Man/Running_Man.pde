@@ -136,7 +136,7 @@ void draw() {
       startMenu.exitBtn();
     }
     // Non specific methods
-
+    
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       play.theme();
@@ -150,7 +150,7 @@ void draw() {
       score.update();
       score.setBonus();
       score.display();
-
+score.update();
       newPlayer.movePlayer();
       newPlayer.loadMario();
       enemies.loadMarioEnemy();
@@ -171,7 +171,8 @@ void draw() {
       startMenu.pause();
       startMenu.instructions();
       score.createTable();
-      score.setTime();
+      //score.setTime();
+      score.update();
       score.setBonus();
       score.display();
       newPlayer.movePlayer();
@@ -194,7 +195,7 @@ void draw() {
       startMenu.pause();
       startMenu.instructions();
       score.createTable();
-      score.setTime();
+  score.update();
       score.setBonus();
       score.display();
       newPlayer.movePlayer();
@@ -250,6 +251,5 @@ void keyPressed() {
   }
 
   if (keyCode == 'E') {
-
   }
 }
