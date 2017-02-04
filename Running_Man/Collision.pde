@@ -55,12 +55,12 @@ class Collision {
       score.writeScore();
       play.dead();
 
-      println("before noloop");
+      //println("before noloop");
       noLoop();
       background.loadEndGameBg();
-      println("after noloop, before delay");
+      //println("after noloop, before delay");
       score.myDelay();
-      println("after delay");
+      //println("after delay");
       userChoice = " ";
       gameOver = false;
       characterRunning = false;
@@ -92,7 +92,7 @@ class Collision {
   boolean bonusHit() {
     if (bonusHit) {
       if (count == 1) {
-        println("Bonus count = 1");
+        //println("Bonus count = 1");
         return true;
       } else {
         return false;

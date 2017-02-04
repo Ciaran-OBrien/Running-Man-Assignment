@@ -39,8 +39,8 @@ class Timer {
     localBonus = 0;
 
     startTime = int(millis()/1000); // resetTime
-    println("StartTime = " + startTime);
-    println("Curent Time = " + currentTime);
+    //println("StartTime = " + startTime);
+    //println("Curent Time = " + currentTime);
   }
 
 
@@ -54,7 +54,7 @@ class Timer {
 
   void display() {
 
-    println("currentTime" + currentTime);
+    //println("currentTime" + currentTime);
     fill(255);
     textSize(32);
     textAlign(CENTER);

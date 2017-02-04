@@ -114,7 +114,7 @@ void setup() {
 String userChoice = "";
 boolean characterRunning, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false;
 int loopCount;
-
+boolean plays;
 
 void draw() {
   textFont(text);
@@ -244,17 +244,12 @@ void keyPressed() {
       menu = true;
       showInstructions = false;
     } else {
-      //showInstructions = false; 
       menu = false;
       showInstructions = true;
     }
   }
 
   if (keyCode == 'E') {
-    if (showExit) {
-      showExit = false;
-    } else {
-      showExit = true;
-    }
+
   }
 }

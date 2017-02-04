@@ -26,7 +26,7 @@ class Background {
 
   void loadEndGameBg() {
     if (gameOver) {
-      println("Showing endgame bg");
+      //println("Showing endgame bg");
       background(100);
       //background(backgrounds[3]);
     }

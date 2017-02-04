@@ -2,7 +2,7 @@ class Menu {
 
   int textBuffer = 15;
   boolean paused;
-  String[] buttons = {"EXIT", "PAUSE", "PLAY", "INSTRUCTION"};
+  String[] buttons = {"EXIT", "||", "INSTRUCTION"};
   String[] userMenu = {"Please select your character", "Mario", "Sonic", "Pacman"};
 
   //float[] textMutiples = new textMultiples;
@@ -36,18 +36,16 @@ class Menu {
     fill(0);
     textSize(50);
     textAlign(CENTER);
-    if (!paused) {
+
       text(buttons[1], width*9/10, height*1/10);
-    } else {
-      text(buttons[2], width*9/10, height*1/10);
-    }
+
     noFill();
     rectMode(CENTER);
     rect(width*9/10, height*1/10, textWidth(buttons[1]), 2*textAscent());
   }
 
   void exitBtn() {
-    println("Showing exit button");
+    //println("Showing exit button");
     fill(0);
     textSize(50);
     textAlign(CENTER);
@@ -55,6 +53,7 @@ class Menu {
     noFill();
     rectMode(CENTER);
     rect(width*5/10, height*5/10, textWidth(buttons[0]), 2*textAscent());
+    plays = false;
   }
 
   void instructions() {
@@ -71,10 +70,10 @@ class Menu {
     if (paused//Detection of exit button 
       && mouseY < height*5/10 + 2*textAscent() // Un hard code thiis lots of work
       && mouseY > height*5/10 - 2*textAscent()
-      && mouseX < width*5/10 + 100
-      && mouseX > width*5/10 - 100
+      && mouseX < width*5/10 + textWidth(buttons[0])
+      && mouseX > width*5/10 - textWidth(buttons[0])
       ) {
-      println("Exit pressed !");
+      //println("Exit pressed !");
       characterRunning = false;
       paused = false;
       menu = true;
@@ -84,8 +83,8 @@ class Menu {
     // Detection of the instruction button
     if (mouseY < height*1/10 + 2*textAscent()
       && mouseY > height*1/10 - 2*textAscent()
-      && mouseX < width*1/10 + 100
-      && mouseX > width*1/10 - 100
+      && mouseX < width*1/10 + textWidth(buttons[3])
+      && mouseX > width*1/10 - textWidth(buttons[3])
       ) {
       if (looping) { 
         instructions.render();
@@ -97,16 +96,21 @@ class Menu {
     // Detection of the pause button
     if (mouseY < height*1/10 + 2*textAscent()
       && mouseY > height*1/10 - 2*textAscent()
-      && mouseX < width*9/10 + 100
-      && mouseX > width*9/10 - 100
+      && mouseX < width*9/10 + textWidth(buttons[1])
+      && mouseX > width*9/10 - textWidth(buttons[1])
       ) {
       if (looping) { 
-        play.pause();
         paused = true;
+
+        //play.pause();
+
         startMenu.exitBtn();
 
         noLoop();
+
+        
       } else {
+        //play = false;
         loop();
       }
     }
