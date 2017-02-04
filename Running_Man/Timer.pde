@@ -36,6 +36,7 @@ class Timer {
   void setTime() {
 
     currentTime = 0; // resetTime
+    localBonus = 0;
 
     startTime = int(millis()/1000); // resetTime
     println("StartTime = " + startTime);
