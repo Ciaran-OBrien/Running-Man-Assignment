@@ -128,12 +128,13 @@ void draw() {
     startMenu.textBorders();
   }
   if (characterRunning) {
+          play.theme();
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       background.loadMarioBg();
       startMenu.pause();
       startMenu.instructions();
-      play.theme();
+
       score.createTable();
       score.setTime();
       score.display();

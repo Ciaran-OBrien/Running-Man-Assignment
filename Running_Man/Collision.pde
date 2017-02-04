@@ -52,8 +52,7 @@ class Collision {
       //Save the score when a hit collision has been registered
       score.writeScore();
       background(backgrounds[3]);
-      marioThemeMus.pause();
-      marioDeathMus.play();
+      play.dead();
       noLoop();
       
       if (!marioDeathMus.isPlaying()) {

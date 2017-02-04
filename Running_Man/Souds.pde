@@ -10,6 +10,7 @@ class Sounds {
       sonicThemeMus.play();
     } else if (userChoice == "pacman") {
       pacmanThemeMus.play();
+
     }
   }
 

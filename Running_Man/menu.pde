@@ -45,9 +45,11 @@ class Menu {
       && mouseX > width*1/10 - 100
       ) {
       if (looping) { 
+        showInstructions = true;
         play.pause();
         noLoop();
       } else {
+        showInstructions = false;
         loop();
       }
     } 
