@@ -112,7 +112,7 @@ void setup() {
 }
 
 String userChoice = "";
-boolean characterRunning, speed, gameOver, menu = true, bonusHit = false, showInstructions = false;
+boolean characterRunning, speed, gameOver, menu = true, bonusHit = false, showInstructions = false, showExit = false;
 int loopCount;
 
 
@@ -128,7 +128,15 @@ void draw() {
     startMenu.textBorders();
   }
   if (characterRunning) {
-          play.theme();
+    if (showInstructions) {
+      //background(205);
+      instructions.render();
+    }
+    if (showExit) {
+      startMenu.exitBtn();
+    }
+    play.theme();
+
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       background.loadMarioBg();
@@ -154,6 +162,8 @@ void draw() {
     } else if (userChoice == "sonic") {
       // Calling all the relavent sonic methods
       background.loadSonicBg();
+      startMenu.pause();
+      startMenu.instructions();
       score.createTable();
       score.setTime();
       score.display();
@@ -173,6 +183,8 @@ void draw() {
     } else if (userChoice == "pacman") {
       // Calling all the relavent pacman methods
       background.loadPacmanBg();
+      startMenu.pause();
+      startMenu.instructions();
       score.createTable();
       score.setTime();
       score.display();
@@ -196,6 +208,8 @@ void draw() {
 }
 
 void mousePressed() {
+  println(mouseX + " "+ mouseY);
+  
   if (startMenu.detection() && !characterRunning) {
     menu = false;
     characterRunning = true;
@@ -222,6 +236,14 @@ void keyPressed() {
       //showInstructions = false; 
       menu = false;
       showInstructions = true;
+    }
+  }
+
+  if (keyCode == 'E') {
+    if (showExit) {
+      showExit = false;
+    } else {
+      showExit = true;
     }
   }
 }
