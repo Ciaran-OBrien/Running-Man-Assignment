@@ -97,7 +97,8 @@ class Menu {
       }
     }
 
-    if (mouseY < (height*6/10 + 35)  
+    if (!characterRunning
+      && mouseY < (height*6/10 + 35)  
       && mouseY > (height*6/10 - 35) 
       && mouseX < width/2 + 100 
       && mouseX > width/2 - 100) {
@@ -105,14 +106,16 @@ class Menu {
 
       return true;
     }
-    if (mouseY < (height*7/10 + 35)  
+    if (!characterRunning
+      && mouseY < (height*7/10 + 35)  
       && mouseY > (height*7/10 - 35) 
       && mouseX < width/2 + 100 
       && mouseX > width/2 - 100) {
       userChoice = "sonic";
       return true;
     }
-    if (mouseY < (height*8/10 + 35)  
+    if (!characterRunning
+      && mouseY < (height*8/10 + 35)  
       && mouseY > (height*8/10 - 35) 
       && mouseX < width/2 + 100 
       && mouseX > width/2 - 100) {
