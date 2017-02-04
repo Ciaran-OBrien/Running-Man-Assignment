@@ -1,8 +1,9 @@
 class Timer {
-  int t, interval, score,timer;
+  int t, interval, score,timer,start;
   String time;
   int localBonus;
   Timer() {
+    start = int(millis()/1000);
     time = "000";
     localBonus = 0;
     //t = interval;
@@ -21,8 +22,13 @@ class Timer {
   //  textSize(32);
   //  text("Your score: " + time, width*9/13, height*1/8);
   //}
+  void setTime(){
+    
+   t = start;
+   interval = 0;
+   }
 
-  void setTime() {
+  void setBonus() {
     if (detect.bonusHit()) {
       localBonus += 10;
     }
@@ -31,7 +37,6 @@ class Timer {
     fill(255);
     textSize(32);
     textAlign(CENTER);
-    interval = 0;
     t = interval + localBonus + int(millis()/1000);
     text("Your score: " + t, width*9/13, height*1/10);
   }
@@ -50,7 +55,7 @@ class Timer {
   void writeScore() {
     println("Score saved");
     TableRow value = highScore.addRow();
-    value.setString("Scores", time);
+    value.setInt("Scores", t);
     saveTable(highScore, "data/highScores.csv");
   }
 }

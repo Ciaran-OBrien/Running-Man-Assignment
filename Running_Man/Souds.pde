@@ -38,12 +38,15 @@ class Sounds {
   void dead() {
     if (userChoice == "mario") {
       marioThemeMus.pause();
+      marioThemeMus.rewind();
       marioDeathMus.play();
     } else if (userChoice == "sonic") {            
       sonicThemeMus.pause();
+      sonicThemeMus.rewind();
       sonicDeathMus.play();
     } else if (userChoice == "pacman") {            
       pacmanThemeMus.pause();
+      sonicThemeMus.rewind();
       pacmanDeathMus.play();
     }
   }

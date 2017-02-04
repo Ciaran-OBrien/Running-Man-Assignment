@@ -19,6 +19,11 @@ class Player extends CharacterObject{
     //  pacmanSkins[i] = loadImage("images/characters/pacman/pacman" + i + ".png");
     //}
   }
+  
+  void setPosx(float x){
+  posX = x;
+  
+  }
   void movePlayer(){
     posX=posX+speed*direction;
     if(posX > width){

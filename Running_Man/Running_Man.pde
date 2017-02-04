@@ -112,7 +112,7 @@ void setup() {
 }
 
 String userChoice = "";
-boolean characterRunning, speed, gameOver, menu = true, bonusHit = false, showInstructions = false, showExit = false;
+boolean characterRunning, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false;
 int loopCount;
 
 
@@ -136,7 +136,6 @@ void draw() {
       startMenu.exitBtn();
     }
     // Non specific methods
-    play.theme();
     detect.setEnemyX(enemies.getEnemyX());
     detect.setEnemyY(enemies.getEnemyY());
     detect.setCharacterX(newPlayer.getPlayerX());
@@ -144,15 +143,20 @@ void draw() {
     detect.setBonusX(item.getBonusX());
     detect.setBonusY(item.getBonusY());
     detect.collision();
+
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
+      play.theme();
       background.loadMarioBg();
+      background.loadEndGameBg();
       startMenu.pause();
       startMenu.instructions();
 
       score.createTable();
       score.setTime();
+      score.setBonus();
       score.display();
+
       newPlayer.movePlayer();
       newPlayer.loadMario();
       enemies.loadMarioEnemy();
@@ -161,11 +165,13 @@ void draw() {
       item.loadMarioBonus();
     } else if (userChoice == "sonic") {
       // Calling all the relavent sonic methods
+      play.theme();
       background.loadSonicBg();
       startMenu.pause();
       startMenu.instructions();
       score.createTable();
       score.setTime();
+      score.setBonus();
       score.display();
       newPlayer.movePlayer();
       newPlayer.loadSonic();
@@ -175,11 +181,13 @@ void draw() {
       item.loadSonicBonus();
     } else if (userChoice == "pacman") {
       // Calling all the relavent pacman methods
+      play.theme();
       background.loadPacmanBg();
       startMenu.pause();
       startMenu.instructions();
       score.createTable();
       score.setTime();
+      score.setBonus();
       score.display();
       newPlayer.movePlayer();
       newPlayer.loadPacman();
@@ -198,7 +206,10 @@ void mousePressed() {
 
   if (startMenu.detection() && !characterRunning) {
     menu = false;
+    gameOver = false;
     characterRunning = true;
+    newPlayer.setPosx(random(width));
+    score.setTime();
   }
   //else{
   //  characterRunning = false;

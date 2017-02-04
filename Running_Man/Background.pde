@@ -25,6 +25,10 @@ class Background {
   }
 
   void loadEndGameBg() {
-    background(backgrounds[3]);
+    if (gameOver) {
+      println("Showing endgame bg");
+      background(100);
+      //background(backgrounds[3]);
+    }
   }
 }

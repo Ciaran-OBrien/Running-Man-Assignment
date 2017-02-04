@@ -50,13 +50,22 @@ class Collision {
       enemyX - enemyXBorder <= characterX + characterXBorder //BLeft enemy and Tright char
       ) {
       //Save the score when a hit collision has been registered
+      gameOver = true;
+      //background.loadEndGameBg();
       score.writeScore();
       play.dead();
-      background.loadEndGameBg();
-      score.myDelay(3000);
+      
+      println("before noloop");
       noLoop();
+      background.loadEndGameBg();
+      println("after noloop, before delay");
+      score.myDelay(3000);
+      println("after delay");
+      userChoice = " ";
+      gameOver = false;
       characterRunning = false;
       menu = true;
+      
       loop();
     } // end of nested enemy/character if
 
