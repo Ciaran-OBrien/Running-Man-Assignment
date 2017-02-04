@@ -17,21 +17,15 @@ class Sounds {
     if (userChoice == "mario" && detect.bonusHit()) {
       marioThemeMus.pause();
       marioBonusMus.play();
-      if (!marioBonusMus.isPlaying()) {
-        marioThemeMus.play();
-      }
-    } else if (userChoice == "sonic") {
+      marioBonusMus.rewind();
+    } else if (userChoice == "sonic" && detect.bonusHit()) {
       sonicThemeMus.pause();
       sonicBonusMus.play();
-      if (!sonicBonusMus.isPlaying()) {
-        sonicThemeMus.play();
-      }
-    } else if (userChoice == "pacman") {
+      sonicBonusMus.rewind();
+    } else if (userChoice == "pacman" && detect.bonusHit()) {
       pacmanThemeMus.pause();
       pacmanBonusMus.play();
-      if (!pacmanBonusMus.isPlaying()) {
-        pacmanThemeMus.play();
-      }
+      pacmanBonusMus.rewind();
     }
   }
 

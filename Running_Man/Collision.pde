@@ -54,7 +54,7 @@ class Collision {
       //background.loadEndGameBg();
       score.writeScore();
       play.dead();
-      
+
       println("before noloop");
       noLoop();
       background.loadEndGameBg();
@@ -65,7 +65,7 @@ class Collision {
       gameOver = false;
       characterRunning = false;
       menu = true;
-      
+
       loop();
     } // end of nested enemy/character if
 
@@ -92,6 +92,7 @@ class Collision {
   boolean bonusHit() {
     if (bonusHit) {
       if (count == 1) {
+        println("Bonus count = 1");
         return true;
       } else {
         return false;
