@@ -19,7 +19,7 @@ class Enemy extends CharacterObject {
       y0_speed = 10 + speedMultiplier; 
       enemyIndex  = (int)random(1, 4);
     }
-    //Move the ball
+    //Move the Enemy
     y0 += y0_speed;
   } 
   // Drawing all the Mario Enemies

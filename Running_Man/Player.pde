@@ -41,17 +41,14 @@ class Player extends CharacterObject {
     if ((frameCount/5)%2==0 && direction == 1) {
       playerSkin = marioSkins[1];
     }
-
     // Character runnning facing right
     else if ((frameCount/5)%2!=0 && direction == 1) {
       playerSkin = marioSkins[2];
     }
-
     // Characater standing facing left
     if ((frameCount/5)%2==0 && direction == -1) {
       playerSkin = marioSkins[3];
     }
-
     // Character standing facing left
     else if ((frameCount/5)%2!=0 && direction == -1) {
       playerSkin = marioSkins[4];

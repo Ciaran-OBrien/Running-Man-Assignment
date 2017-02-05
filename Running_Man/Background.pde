@@ -17,7 +17,6 @@ class Background {
 
   void loadEndGameBg() {
     if (gameOver) {
-      //background(100);
       background(backgrounds[3]);
     }
   }

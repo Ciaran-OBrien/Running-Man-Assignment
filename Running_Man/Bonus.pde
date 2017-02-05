@@ -20,9 +20,7 @@ class Bonus extends CharacterObject {
       y0_speed = 10 + speedMultiplier;//random(3,7); 
       bonusIndex  = (int)random(1, 4);
     }
-
-
-    //Move the ball
+    //Move the Bonus
     y0 += y0_speed;
   } 
 

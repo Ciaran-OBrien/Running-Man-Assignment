@@ -47,8 +47,6 @@ Table highScore;
 void setup() {
   size(2000, 1000);
   background(0);
-  //frameRate(10);
-  //fullScreen();
 
   minim = new Minim(this);
 
@@ -91,8 +89,6 @@ void setup() {
   pacmanThemeMus = minim.loadFile("sounds/pacman/theme.mp3");
   pacmanBonusMus = minim.loadFile("sounds/pacman/bonus.mp3");
   pacmanDeathMus = minim.loadFile("sounds/pacman/death.mp3");
-
-
 
   // Loading all of the charater's skins
   for (int i = 1; i < numOfSkins; i++) {
@@ -146,7 +142,6 @@ void draw() {
       startMenu.pause();
       startMenu.instructions();
       score.createTable();
-      //score.setTime();
       score.update();
       score.setBonus();
       score.display();
@@ -171,7 +166,6 @@ void draw() {
       startMenu.pause();
       startMenu.instructions();
       score.createTable();
-      //score.setTime();
       score.update();
       score.setBonus();
       score.display();
@@ -212,7 +206,6 @@ void draw() {
       detect.setBonusY(item.getBonusY());
       detect.collision();
     } else {
-
       println("ERROR");
     }
   } else {
@@ -220,7 +213,6 @@ void draw() {
 } // End of draw
 
 void mousePressed() {
-
   if (startMenu.detection() && !characterRunning) {
     menu = false;
     gameOver = false;
@@ -230,7 +222,6 @@ void mousePressed() {
   }
 
   if (newPlayer.getDirection() == 1) {
-
     newPlayer.setDirection(-1);
   } else {
     newPlayer.setDirection(1);
@@ -238,7 +229,6 @@ void mousePressed() {
 }
 
 void keyPressed() {
-
   if (keyCode == 'I') {
     if (showInstructions) {
       menu = true;
@@ -248,7 +238,6 @@ void keyPressed() {
       showInstructions = true;
     }
   }
-
   if (keyCode == 'E') {
   }
 }

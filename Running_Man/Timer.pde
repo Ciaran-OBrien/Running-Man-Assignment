@@ -41,7 +41,6 @@ class Timer {
     t = localBonus + currentTime;
     text("Your score: " + t, width*9/13, height*1/10);
     if (t == 50 || t == 100 ) {
-      println("Speed increase");
       speedMultiplier =+ 5;
     }
   }
