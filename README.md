@@ -70,3 +70,22 @@ The below code runs for each character
     image(playerSkin, posX, horizon);
   } 
 ```
+This section of the sketch deas with the guts of the timer functions
+``` java
+Timer() {
+    time = "000";
+    localBonus = 0;
+    ms = 3000;
+    bonusCount = 0;
+  }
+
+  void update() {
+    currentTime = int(millis()/1000) - startTime;
+  }
+
+  void setTime() {
+    currentTime = 0; // resetTime
+    localBonus = 0;
+    startTime = int(millis()/1000); // resetTime
+  }
+```
