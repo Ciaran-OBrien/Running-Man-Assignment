@@ -46,6 +46,7 @@ Table highScore;
 
 void setup() {
   size(2000, 1000);
+  background(0);
   //frameRate(10);
   //fullScreen();
 
@@ -120,12 +121,12 @@ boolean plays;
 void draw() {
   textFont(text);
   if (showInstructions) {
-    background(205);
     instructions.render();
   }
   if (menu) {
-    background(205);
+    background(0);
     startMenu.load();
+    startMenu.backgroundFuzz();
   }
   if (characterRunning) {
     if (showInstructions) {
@@ -212,8 +213,10 @@ void draw() {
       detect.setBonusY(item.getBonusY());
       detect.collision();
     } else {
+
       println("ERROR");
     }
+  } else {
   }
 } // End of draw
 
@@ -226,9 +229,6 @@ void mousePressed() {
     newPlayer.setPosx(random(width));
     score.setTime();
   }
-  //else{
-  //  characterRunning = false;
-  //}
 
   if (newPlayer.getDirection() == 1) {
 

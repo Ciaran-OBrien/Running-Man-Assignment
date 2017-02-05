@@ -5,10 +5,4 @@ class CharacterObject{
     horizon = 800;
   }
   
-  
-  
-
-
-
-
 }

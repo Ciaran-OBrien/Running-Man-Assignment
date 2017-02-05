@@ -66,12 +66,9 @@ class Collision {
       score.writeScore();
       play.dead();
 
-      //println("before noloop");
       noLoop();
       background.loadEndGameBg();
-      //println("after noloop, before delay");
       score.myDelay();
-      //println("after delay");
       userChoice = " ";
       //gameOver = false;
       characterRunning = false;
