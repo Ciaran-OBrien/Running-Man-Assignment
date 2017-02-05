@@ -126,7 +126,6 @@ void draw() {
   if (menu) {
     background(205);
     startMenu.load();
-    startMenu.textBorders();
   }
   if (characterRunning) {
     if (showInstructions) {

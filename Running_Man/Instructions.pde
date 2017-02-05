@@ -20,7 +20,7 @@ class Instructions {
     pacmanEnemies[1].resize(100, 100);
     image(pacmanEnemies[1], width*0.6, height*0.47);
     pacmanEnemies[1].resize(400, 400);
-    text("Ain for the relavent bonuses\n\n",width*0.5,height*0.65);
+    text("Ain for the relavent bonuses\n\n", width*0.5, height*0.65);
     marioBonus[1].resize(100, 100);
     image(marioBonus[1], width*0.4, height*0.7);
     marioBonus[1].resize(400, 400);

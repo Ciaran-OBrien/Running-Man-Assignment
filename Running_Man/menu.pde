@@ -1,6 +1,6 @@
 class Menu {
 
-  int textBuffer = 15;
+  int textBuffer = 15,fill;
   boolean paused;
   String[] buttons = {"EXIT", "||", "INSTRUCTION"};
   String[] userMenu = {"Please select your character", "Mario", "Sonic", "Pacman"};
@@ -9,62 +9,43 @@ class Menu {
   //float marioTextMultiple = 6/10,sonicTextMultiple = 7/10,pacmanTextMultiple = 8/10;
   Menu() {
     paused = false;
+    fill = 255;
   }
 
   void load() {
     textAlign(CENTER);
     textSize(38);
-    //text(userMenu[0], width/2, height/2);
-    //text(userMenu[1], width/2, height*6/10);
-    //text(userMenu[2], width/2, height*7/10);
-    //text(userMenu[3], width/2, height*8/10);
+    text(userMenu[0], width/2, height/2);
+    text(userMenu[1], width/2, height*6/10);
+    text(userMenu[2], width/2, height*7/10);
+    text(userMenu[3], width/2, height*8/10);
     text(buttons[2], width*1/10, height*1/10);
   }
 
-  void textBorders() {
-    noFill();
-    rectMode(CENTER);
-    rect(width/2, height*6/10, textWidth(userMenu[1]), 2*textAscent());
-    rect(width/2, height*7/10, textWidth(userMenu[2]), 2*textAscent());
-    rect(width/2, height*8/10, textWidth(userMenu[3]), 2*textAscent());
-    //strokeWeight(10);
-    //rect(width/2, height*6/10-textBuffer, 200, 70);
-    //rect(width/2, height*7/10-textBuffer, 200, 70);
-    //rect(width/2, height*8/10-textBuffer, 200, 70);
-  }
-
   void pause() {
-    fill(0);
+    fill(fill);
     textSize(50);
     textAlign(CENTER);
-
-      text(buttons[1], width*9/10, height*1/10);
-
+    text(buttons[1], width*9/10, height*1/10);
     noFill();
-    rectMode(CENTER);
-    rect(width*9/10, height*1/10, textWidth(buttons[1]), 2*textAscent());
   }
 
   void exitBtn() {
     //println("Showing exit button");
-    fill(0);
+    fill(fill);
     textSize(50);
     textAlign(CENTER);
     text(buttons[0], width*5/10, height*5/10);
     noFill();
-    rectMode(CENTER);
-    rect(width*5/10, height*5/10, textWidth(buttons[0]), 2*textAscent());
     plays = false;
   }
 
   void instructions() {
-    fill(0);
+    fill(fill);
     textSize(40);
     textAlign(CENTER);
     text(buttons[2], width*1/10, height*1/10);
     noFill();
-    rectMode(CENTER);
-    rect(width*1/10, height*1/10, textWidth(buttons[2]), 2*textAscent());
   }
 
   boolean detection() {
@@ -88,6 +69,7 @@ class Menu {
       && mouseX > width*1/10 - textWidth(buttons[2])
       ) {
       if (looping) { 
+        play.pause();
         menu = false;
         instructions.render();
         noLoop();
@@ -105,13 +87,11 @@ class Menu {
       if (looping) { 
         paused = true;
 
-        //play.pause();
+        play.pause();
 
         startMenu.exitBtn();
 
         noLoop();
-
-        
       } else {
         //play = false;
         loop();
