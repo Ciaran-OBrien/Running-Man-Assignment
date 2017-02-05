@@ -26,29 +26,30 @@ class Bonus extends CharacterObject {
     y0 += y0_speed;
   } 
 
+  // Drawing all the Mario Bonuses
   void loadMarioBonus() {
     imageMode(CENTER);
     image(marioBonus[bonusIndex], x0, y0, marioBonus[bonusIndex].width/4, marioBonus[bonusIndex].height/4);
   }
-
+  // Drawing all the Sonic Bonuses
   void loadSonicBonus() {
-
     imageMode(CENTER);
     image(sonicBonus[bonusIndex], x0, y0,sonicBonus[bonusIndex].width/2, sonicBonus[bonusIndex].height/2);
   }
-
+  // Drawing all the Pacman Bonuses
   void loadPacmanBonus() {
     imageMode(CENTER);
     image(pacmanBonus[bonusIndex], x0, y0, pacmanBonus[bonusIndex].width/4, pacmanBonus[bonusIndex].height/4);
   }
-
+  // Returning the Bonus number
   int getBonusIndex(){
     return bonusIndex;
   }
+  // Returning the X co-ordinates of the Bonus
   float getBonusX() {
     return x0;
   }
-
+  // Returning the Y co-ordinates of the Bonus
   float getBonusY() {
     return y0;
   }

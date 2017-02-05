@@ -1,8 +1,6 @@
 class Sounds {
 
-  Sounds() {
-  }
-
+  // Method with the relevant theme souds
   void theme() {
     if (userChoice == "mario") { 
       marioThemeMus.play();
@@ -13,9 +11,13 @@ class Sounds {
     }
   }
 
+ // Method with the relevant bonus sounds
   void bonus() {
+    // Extra logic to insure the sound only plays once
     if (userChoice == "mario" && detect.bonusHit()) {
       marioThemeMus.pause();
+      // Rewind the Bonus sound for each character
+      // Necessary to rewind the sound for the next time the sound is played
       marioBonusMus.play();
       marioBonusMus.rewind();
     } else if (userChoice == "sonic" && detect.bonusHit()) {
@@ -29,9 +31,11 @@ class Sounds {
     }
   }
 
+  // Method with the relevant death sounds
   void dead() {
     if (userChoice == "mario") {
       marioThemeMus.pause();
+      // Same as above, rewind the sound for the next time it's played
       marioThemeMus.rewind();
       marioDeathMus.play();
     } else if (userChoice == "sonic") {            
@@ -45,6 +49,7 @@ class Sounds {
     }
   }
 
+  // Ensuring all sounds are paused
   void pause() {
     if (userChoice == "mario") {
       marioThemeMus.pause();

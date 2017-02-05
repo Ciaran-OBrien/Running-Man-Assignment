@@ -145,7 +145,6 @@ void draw() {
       background.loadEndGameBg();
       startMenu.pause();
       startMenu.instructions();
-
       score.createTable();
       //score.setTime();
       score.update();

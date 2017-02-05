@@ -1,15 +1,6 @@
 class Background {
 
   int numOfBackgrounds = 3;
-  //PImage[] backgrounds;
-
-  Background() {
-    //backgrounds = new PImage[numOfBackgrounds];
-    //for (int i=1; i<numOfBackgrounds; i++){
-    //  // Load all the backgrounds images to the game
-    //  backgrounds[i] = loadImage("images/backgrounds/bg" + i + ".png");     
-    //}
-  }
 
   // When called, sets background to Mario's background
   void loadMarioBg() {
@@ -19,16 +10,15 @@ class Background {
   void loadSonicBg() {
     background(backgrounds[2]);
   }
-
+  // When called, sets background to Pacman's background  
   void loadPacmanBg() {
     background(backgrounds[4]);
   }
 
   void loadEndGameBg() {
     if (gameOver) {
-      //println("Showing endgame bg");
-      background(100);
-      //background(backgrounds[3]);
+      //background(100);
+      background(backgrounds[3]);
     }
   }
 }
