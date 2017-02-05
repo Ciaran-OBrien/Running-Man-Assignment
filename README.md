@@ -89,3 +89,34 @@ Timer() {
     startTime = int(millis()/1000); // resetTime
   }
 ```
+The fuzzy background of the main menu, coll little animaiton
+```java
+// The background of the main menu
+  // Random strokes and lines falling down the screen
+  void backgroundFuzz() {
+    strokeWeight(10);
+    for (int i=0; i<=0.5*width; i+=50) {
+      stroke(random(0, 255));
+      x = random(0, width);
+      y = random(0, width);
+      line(x, y, x+random(0, s), y);
+    }
+
+    stroke(100, 100);
+    line(0, wipe[0], width, wipe[0]);
+    wipe[0]+=2;
+    if (wipe[0]>width/2) {
+      wipe[0]=0;
+    }
+    line(0, wipe[1], width, wipe[1]);
+    wipe[1]+=4;
+    if (k>width/4) {
+      wipe[1]=0;
+    }
+    line(0, wipe[2], width, wipe[2]);
+    wipe[2]+=4;
+    if (l>width/8) {
+      wipe[2]=0;
+    }
+  }
+```
