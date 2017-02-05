@@ -16,6 +16,7 @@ class Enemy extends CharacterObject {
     x0 = random(width);
     y0 = 0;
     y0_speed = 10;
+   
   }
 
   void moveEnemy() {

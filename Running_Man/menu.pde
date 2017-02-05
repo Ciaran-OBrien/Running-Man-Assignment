@@ -14,10 +14,11 @@ class Menu {
   void load() {
     textAlign(CENTER);
     textSize(38);
-    text(userMenu[0], width/2, height/2);
-    text(userMenu[1], width/2, height*6/10);
-    text(userMenu[2], width/2, height*7/10);
-    text(userMenu[3], width/2, height*8/10);
+    //text(userMenu[0], width/2, height/2);
+    //text(userMenu[1], width/2, height*6/10);
+    //text(userMenu[2], width/2, height*7/10);
+    //text(userMenu[3], width/2, height*8/10);
+    text(buttons[2], width*1/10, height*1/10);
   }
 
   void textBorders() {
@@ -87,9 +88,11 @@ class Menu {
       && mouseX > width*1/10 - textWidth(buttons[2])
       ) {
       if (looping) { 
+        menu = false;
         instructions.render();
         noLoop();
       } else {
+        menu = true;
         loop();
       }
     } 
