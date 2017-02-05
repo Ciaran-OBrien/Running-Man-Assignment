@@ -1,6 +1,7 @@
 class Instructions {
   // Method to display all the instructions
   void render() {
+    noLoop();
     fill(255);
     textAlign(CENTER);
     textSize(50);
@@ -14,14 +15,14 @@ class Instructions {
     // Drawing the enemies to show user
     // Must resize the images to fit on screen properly
     marioEnemies[1].resize(100, 100);
-    image(marioEnemies[1], width*0.4, height*0.5);
+    image(marioEnemies[1], width*0.4, height*0.53);
     // Must resize back to original size so they work properly during the game
     marioEnemies[1].resize(400, 400);
     sonicEnemies[1].resize(100, 100);
-    image(sonicEnemies[1], width*0.5, height*0.5);
+    image(sonicEnemies[1], width*0.5, height*0.53);
     sonicEnemies[1].resize(400, 400);
     pacmanEnemies[1].resize(100, 100);
-    image(pacmanEnemies[1], width*0.6, height*0.5);
+    image(pacmanEnemies[1], width*0.6, height*0.53);
     pacmanEnemies[1].resize(400, 400);
     // Drawing the enemies to show user
     text("Ain for the relavent bonuses\n\n", width*0.5, height*0.65);

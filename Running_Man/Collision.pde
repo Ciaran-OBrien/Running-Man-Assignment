@@ -87,16 +87,6 @@ class Collision {
       count++;
       play.bonus();
     } // end of nested if
-    //if (bonusY + bonusYBorder >= characterY - characterBorder &&// Y line border
-    //  bonusX + bonusXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
-    //  bonusX - bonusXBorder <= characterX + characterXBorder &&//BLeft enemy and Tright char
-    //  item.getBonusIndex() == 3
-    //  ) {
-    //  newPlayer.setPlayerSpeed(20);
-    //  bonusHit = true;
-    //  count++;
-    //  play.bonus();
-    //} // end of nested if
 
     else {
       count = 0;

@@ -111,22 +111,40 @@ class Menu {
     }
 
     // Detection of the instruction button
-    if (mouseY < height*1/10 + 2*textAscent()
+
+    if ( mouseY < height*1/10 + 2*textAscent()
       && mouseY > height*1/10 - 2*textAscent()
       && mouseX < width*1/10 + textWidth(buttons[2])
       && mouseX > width*1/10 - textWidth(buttons[2])
       ) {
-      // Instruction button also works as a pause button
-      if (looping) { 
-        play.pause();
-        menu = false;
-        instructions.render();
-        noLoop();
-      } else {
-        menu = true;
-        loop();
+      if (characterRunning) {
+        // Instruction button also works as a pause button when the game is running
+        if (looping) { 
+          play.pause();
+          menu = false;
+          instructions.render();
+          noLoop();
+        } else {
+          menu = true;
+          loop();
+        }
       }
-    } 
+      // Extra logic to show/hide instructions/menu out of the game
+      else if (!characterRunning) {
+        background(0);
+        if (!showInstructions) {
+          menu = false;
+          showInstructions = true;
+          startMenu.instructions();
+          loop();
+        } else {
+          loop();
+          showInstructions = false;
+          menu = true;          
+        }
+      }
+    }
+
     // Detection of the pause button
     if (mouseY < height*1/10 + 2*textAscent()
       && mouseY > height*1/10 - 2*textAscent()

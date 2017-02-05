@@ -78,8 +78,10 @@ void setup() {
   pacmanEnemies = new PImage[numOfSkins];
   sonicEnemies = new PImage[numOfSkins];
 
+  // Loading custom font
   text = loadFont("8bit.vlw");
 
+  // Loading all sound files
   marioThemeMus = minim.loadFile("sounds/mario/theme.mp3");
   marioBonusMus = minim.loadFile("sounds/mario/bonus.mp3");
   marioDeathMus = minim.loadFile("sounds/mario/death.mp3");
@@ -111,12 +113,11 @@ void setup() {
   }
 }
 
+// Global variables
 String userChoice = "";
-boolean characterRunning, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false;
+boolean characterRunning  = false, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false;
 int loopCount;
 boolean plays;
-
-
 
 void draw() {
   textFont(text);
@@ -130,7 +131,6 @@ void draw() {
   }
   if (characterRunning) {
     if (showInstructions) {
-      //background(205);
       instructions.render();
     }
     if (showExit) {
