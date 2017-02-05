@@ -1,4 +1,8 @@
+// Sound Library
 import ddf.minim.*;
+// File I/O Library
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 Minim minim;
 AudioPlayer marioThemeMus;
@@ -42,10 +46,6 @@ PImage[] backgrounds;
 int numOfSounds = 3, numOfSkins = 5, numOfBackgrounds = 5, speedMultiplier = 0; // This multiplier busisness is to do with increasing the speed, and then subtractied form the collission detction in order to keep the x/y coordinates the same as before
 // Save the highscore to a table
 Table highScore;
-
-final static String[] fileNames = {"theme", "bonus", "death"};
-
-
 
 void setup() {
   size(2000, 1000);
@@ -116,6 +116,8 @@ boolean characterRunning, speed, gameOver = false, menu = true, bonusHit = false
 int loopCount;
 boolean plays;
 
+
+
 void draw() {
   textFont(text);
   if (showInstructions) {
@@ -136,7 +138,7 @@ void draw() {
       startMenu.exitBtn();
     }
     // Non specific methods
-    
+
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       play.theme();
@@ -150,7 +152,7 @@ void draw() {
       score.update();
       score.setBonus();
       score.display();
-score.update();
+      score.update();
       newPlayer.movePlayer();
       newPlayer.loadMario();
       enemies.loadMarioEnemy();
@@ -195,7 +197,7 @@ score.update();
       startMenu.pause();
       startMenu.instructions();
       score.createTable();
-  score.update();
+      score.update();
       score.setBonus();
       score.display();
       newPlayer.movePlayer();
@@ -252,4 +254,6 @@ void keyPressed() {
 
   if (keyCode == 'E') {
   }
+
+  
 }

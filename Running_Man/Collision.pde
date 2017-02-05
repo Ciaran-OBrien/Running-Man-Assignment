@@ -64,6 +64,8 @@ class Collision {
       userChoice = " ";
       //gameOver = false;
       characterRunning = false;
+      //highScores.displayUserName();
+
       menu = true;
 
       loop();

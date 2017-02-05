@@ -1,5 +1,5 @@
 class Timer {
-  int t, interval, score, timer, start, ms;
+  int t, interval, score, timer, start, ms, bonusCount;
   String time;
   int localBonus;
   int startTime = millis();
@@ -13,6 +13,7 @@ class Timer {
     time = "000";
     localBonus = 0;
     ms = 3000;
+    bonusCount = 0;
     //t = interval;
   }
 
@@ -30,7 +31,7 @@ class Timer {
   //  text("Your score: " + time, width*9/13, height*1/8);
   //}
   void update() {
-    
+
     currentTime = int(millis()/1000) - startTime;
   }
   void setTime() {
@@ -42,11 +43,14 @@ class Timer {
     //println("Curent Time = " + currentTime);
   }
 
-
+  int getScore() {
+    return t;
+  }
 
   void setBonus() {
     if (detect.bonusHit()) {
       localBonus += 10;
+      bonusCount++;
     }
   }
 
@@ -71,12 +75,16 @@ class Timer {
     highScore = new Table();
     highScore.clearRows();
     highScore.addColumn("Scores");
+    highScore.addColumn("Level");
+    highScore.addColumn("Bonuses");
   }
 
   void writeScore() {
     println("Score saved");
     TableRow value = highScore.addRow();
     value.setInt("Scores", t);
+    value.setString("Level", userChoice);
+    value.setInt("Bonuses", bonusCount);
     saveTable(highScore, "data/highScores.csv");
   }
 }
