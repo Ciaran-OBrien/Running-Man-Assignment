@@ -22,7 +22,7 @@ class Enemy extends CharacterObject {
     if (y0 > horizon+40) {
       y0 = -30;
       x0 = random(width); 
-      y0_speed = 10 + speedMultiplier;//random(3,7); 
+      y0_speed = 10 + speedMultiplier; 
       enemyIndex  = (int)random(1, 4);
     }
 
@@ -33,17 +33,17 @@ class Enemy extends CharacterObject {
 
   void loadMarioEnemy() {
     imageMode(CENTER);
-    image(marioEnemies[enemyIndex], x0, y0, 100, 100);
+    image(marioEnemies[enemyIndex], x0, y0, marioEnemies[enemyIndex].width/4, marioEnemies[enemyIndex].height/4);
   }
 
   void loadSonicEnemy() {
       imageMode(CENTER);
-  image(sonicEnemies[enemyIndex],x0,y0,100,100);
+  image(sonicEnemies[enemyIndex],x0,y0,sonicEnemies[enemyIndex].width/2,sonicEnemies[enemyIndex].height/2);
   }
 
   void loadPacmanEnemy() {
           imageMode(CENTER);
-  image(pacmanEnemies[enemyIndex],x0,y0,100,100);
+  image(pacmanEnemies[enemyIndex],x0,y0,pacmanEnemies[enemyIndex].width/2,pacmanEnemies[enemyIndex].height/2);
   }
 
   float getEnemyX() {

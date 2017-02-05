@@ -28,20 +28,23 @@ class Bonus extends CharacterObject {
 
   void loadMarioBonus() {
     imageMode(CENTER);
-    image(marioBonus[bonusIndex], x0, y0, 100, 100);
+    image(marioBonus[bonusIndex], x0, y0, marioBonus[bonusIndex].width/4, marioBonus[bonusIndex].height/4);
   }
 
   void loadSonicBonus() {
 
     imageMode(CENTER);
-    image(sonicBonus[bonusIndex], x0, y0, 100, 100);
+    image(sonicBonus[bonusIndex], x0, y0,sonicBonus[bonusIndex].width/2, sonicBonus[bonusIndex].height/2);
   }
 
   void loadPacmanBonus() {
     imageMode(CENTER);
-    image(pacmanBonus[bonusIndex], x0, y0, 100, 100);
+    image(pacmanBonus[bonusIndex], x0, y0, pacmanBonus[bonusIndex].width/4, pacmanBonus[bonusIndex].height/4);
   }
 
+  int getBonusIndex(){
+    return bonusIndex;
+  }
   float getBonusX() {
     return x0;
   }

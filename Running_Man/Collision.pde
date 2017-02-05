@@ -44,6 +44,17 @@ class Collision {
     //line(bonusX, bonusY, bonusX, bonusY+bonusYBorder);
     //line(bonusX, bonusY+bonusYBorder, bonusX+bonusXBorder, bonusY+bonusYBorder); // Line to the right
     //line(bonusX, bonusY+bonusYBorder, bonusX-bonusXBorder, bonusY+bonusYBorder); // Line to the left
+    //line(enemyX, enemyY, enemyX, enemyY+marioEnemies[1].width/6);
+    //line(enemyX, enemyY+marioEnemies[1].width/6, enemyX+marioEnemies[1].height/6, enemyY+marioEnemies[1].width/6); // Line to the right
+    //line(enemyX, enemyY+marioEnemies[1].width/6, enemyX-marioEnemies[1].height/6, enemyY+marioEnemies[1].width/6); // Line to the left
+    //// Chacter test lines
+    //line(characterX, characterY, characterX, characterY-marioEnemies[1].width/5);  
+    //line(characterX, characterY-marioEnemies[1].width/5, characterX+marioEnemies[1].height/5, characterY-marioEnemies[1].width/5); // Line to the right
+    //line(characterX, characterY-marioEnemies[1].width/5, characterX-marioEnemies[1].height/5, characterY-marioEnemies[1].width/5); // Line to the left
+    //// Bous test lines
+    //line(bonusX, bonusY, bonusX, bonusY+bonusYBorder);
+    //line(bonusX, bonusY+marioEnemies[1].width/5, bonusX+marioEnemies[1].height/5, bonusY+marioEnemies[1].width/5); // Line to the right
+    //line(bonusX, bonusY+marioEnemies[1].width/5, bonusX-marioEnemies[1].height/5, bonusY+marioEnemies[1].width/5); // Line to the left
 
     if (enemyY + enemyYBorder >= characterY - characterBorder &&// Y line border
       enemyX + enemyXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
@@ -79,6 +90,16 @@ class Collision {
       count++;
       play.bonus();
     } // end of nested if
+    //if (bonusY + bonusYBorder >= characterY - characterBorder &&// Y line border
+    //  bonusX + bonusXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
+    //  bonusX - bonusXBorder <= characterX + characterXBorder &&//BLeft enemy and Tright char
+    //  item.getBonusIndex() == 3
+    //  ) {
+    //  newPlayer.setPlayerSpeed(20);
+    //  bonusHit = true;
+    //  count++;
+    //  play.bonus();
+    //} // end of nested if
 
     else {
       count = 0;

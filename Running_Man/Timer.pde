@@ -63,28 +63,33 @@ class Timer {
     textAlign(CENTER);
     t = localBonus + currentTime;
     text("Your score: " + t, width*9/13, height*1/10);
+    
+    if(t == 50 || t == 100 ){
+      println("Speed increase");
+      speedMultiplier =+ 5;
+    }
   }
 
   void myDelay() {
     timer = millis();
     while (millis() - timer < ms);
   }
-
+ 
   void createTable() {
-    // Create a new table to contain the high scores
-    highScore = new Table();
-    highScore.clearRows();
+
+
     highScore.addColumn("Scores");
     highScore.addColumn("Level");
     highScore.addColumn("Bonuses");
   }
 
   void writeScore() {
+
     println("Score saved");
-    TableRow value = highScore.addRow();
-    value.setInt("Scores", t);
-    value.setString("Level", userChoice);
-    value.setInt("Bonuses", bonusCount);
+    highScore.addRow();
+    highScore.setInt(0,"Scores", t);
+    highScore.setString(0,"Level", userChoice);
+    highScore.setInt(0,"Bonuses", bonusCount);
     saveTable(highScore, "data/highScores.csv");
   }
 }

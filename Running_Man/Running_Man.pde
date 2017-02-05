@@ -1,8 +1,5 @@
 // Sound Library
 import ddf.minim.*;
-// File I/O Library
-import java.io.FileWriter;
-import java.io.BufferedWriter;
 
 Minim minim;
 AudioPlayer marioThemeMus;
@@ -65,6 +62,8 @@ void setup() {
   item  = new Bonus();
   play = new Sounds();
   instructions = new Instructions();
+  // Create a new table to contain the high scores
+  highScore = new Table();
 
   // Instances of all images
   marioEnemies = new PImage[numOfSkins];
@@ -138,7 +137,7 @@ void draw() {
       startMenu.exitBtn();
     }
     // Non specific methods
-
+    score.createTable();
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       play.theme();
@@ -254,6 +253,4 @@ void keyPressed() {
 
   if (keyCode == 'E') {
   }
-
-  
 }
