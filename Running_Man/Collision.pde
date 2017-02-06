@@ -63,20 +63,22 @@ class Collision {
       //Save the score when a hit collision has been registered
       gameOver = true;
       //background.loadEndGameBg();
-      score.writeScore();
+      //score.writeScore();
+      score.appendTextToFile("out.csv",score.getScore(),userChoice);
       play.dead();
-
-      noLoop();
+      println("PLaying end game sound");
+      
       background.loadEndGameBg();
-      score.myDelay();
+      println("Loading gameGrund");
+      score.myDelay(3000);
+      score.showScore();
       userChoice = " ";
       //gameOver = false;
       characterRunning = false;
       //highScores.displayUserName();
 
       menu = true;
-
-      loop();
+      noLoop();
     } // end of nested enemy/character if
 
     if (bonusY + bonusYBorder >= characterY - characterBorder &&// Y line border

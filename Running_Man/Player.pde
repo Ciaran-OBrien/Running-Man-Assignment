@@ -18,6 +18,7 @@ class Player extends CharacterObject {
     if (posX < 0) {
       posX = width;
     }
+    
   }
   // Increasing the player's speed
   void setPlayerSpeed(int s) {
@@ -104,6 +105,7 @@ class Player extends CharacterObject {
     // Drawing the image of the character based on above
     image(playerSkin, posX, horizon);
   }
+
   // Returning the X co-ordinates of the Player
   float getPlayerX() {
     return posX;

@@ -75,7 +75,6 @@ class Menu {
 
   // Exit text method
   void exitBtn() {
-    //println("Showing exit button");
     fill(fill);
     textSize(50);
     textAlign(CENTER);

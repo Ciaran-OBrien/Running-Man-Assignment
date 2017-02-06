@@ -1,5 +1,11 @@
 // Sound Library
 import ddf.minim.*;
+// I/O Library
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 Minim minim;
 AudioPlayer marioThemeMus;
@@ -124,8 +130,8 @@ void draw() {
     background(0);
     startMenu.load();
     startMenu.backgroundFuzz();
-    score.calculateHighScores();
-    score.showScores();
+    //score.calculateHighScores();
+    //score.showScores();
   }
   if (characterRunning) {
     if (showInstructions) {
@@ -135,7 +141,6 @@ void draw() {
       startMenu.exitBtn();
     }
     // Non specific methods
-    score.createTable();
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       play.theme();
@@ -143,7 +148,6 @@ void draw() {
       background.loadEndGameBg();
       startMenu.pause();
       startMenu.instructions();
-      score.createTable();
       score.update();
       score.setBonus();
       score.display();
@@ -167,7 +171,6 @@ void draw() {
       background.loadSonicBg();
       startMenu.pause();
       startMenu.instructions();
-      score.createTable();
       score.update();
       score.setBonus();
       score.display();
@@ -190,7 +193,6 @@ void draw() {
       background.loadPacmanBg();
       startMenu.pause();
       startMenu.instructions();
-      score.createTable();
       score.update();
       score.setBonus();
       score.display();
@@ -241,5 +243,6 @@ void keyPressed() {
     }
   }
   if (keyCode == 'E') {
+    loop();
   }
 }
