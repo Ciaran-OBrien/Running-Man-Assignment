@@ -124,6 +124,8 @@ void draw() {
     background(0);
     startMenu.load();
     startMenu.backgroundFuzz();
+    score.calculateHighScores();
+    score.showScores();
   }
   if (characterRunning) {
     if (showInstructions) {
