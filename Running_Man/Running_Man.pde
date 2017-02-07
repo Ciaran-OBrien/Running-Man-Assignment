@@ -45,6 +45,16 @@ PImage[] pacmanEnemies;
 PImage[] pacmanBonus;
 PImage[] backgrounds;
 
+// Global variables
+String userChoice = "";
+//Boolean variables
+boolean characterRunning  = false, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false, playAgain = false;
+int loopCount;
+boolean plays;
+// String arrays to score highScore details
+String[] scores = new String[10];
+String[] levels = new String[10];
+
 // Variables for the image arrays, based on the number of characters
 int numOfSounds = 3, numOfSkins = 5, numOfBackgrounds = 5, speedMultiplier = 0; // This multiplier busisness is to do with increasing the speed, and then subtractied form the collission detction in order to keep the x/y coordinates the same as before
 // Save the highscore to a table
@@ -115,17 +125,6 @@ void setup() {
   }
 }
 
-// Global variables
-String userChoice = "";
-boolean characterRunning  = false, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false,playAgain = false;
-int loopCount;
-boolean plays;
-
-  String[] scores = new String[10];
-  String[] names = new String[10];
-  String[] levels = new String[10];
-
-
 void draw() {
   textFont(text);
   if (showInstructions) {
@@ -135,8 +134,6 @@ void draw() {
     background(0);
     startMenu.load();
     startMenu.backgroundFuzz();
-    //score.calculateHighScores();
-    //score.showScores();
   }
   if (characterRunning) {
     if (showInstructions) {
@@ -145,10 +142,9 @@ void draw() {
     if (showExit) {
       startMenu.exitBtn();
     }
-    if(playAgain){
+    if (playAgain) {
       score.showScore();
     }
-    // Non specific methods
     if (userChoice =="mario") {
       // Calling all the relavent mario methods
       play.theme();
@@ -220,7 +216,6 @@ void draw() {
     } else {
       println("ERROR");
     }
-  } else {
   }
 } // End of draw
 
@@ -232,7 +227,6 @@ void mousePressed() {
     newPlayer.setPosx(random(width));
     score.setTime();
   }
-
   if (newPlayer.getDirection() == 1) {
     newPlayer.setDirection(-1);
   } else {
@@ -250,9 +244,4 @@ void keyPressed() {
       showInstructions = true;
     }
   }
-  if (keyCode == 'E') {
-    loop();
-  }
-  
-  
 }

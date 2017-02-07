@@ -16,9 +16,7 @@ class Menu {
   int j = 0; //first "wipe"
   int k = -250; //second "wipe"
   int l = -500; // Third "wipe"
-
-  //float[] textMutiples = new textMultiples;
-  //float marioTextMultiple = 6/10,sonicTextMultiple = 7/10,pacmanTextMultiple = 8/10;
+  
   Menu() {
     paused = false;
     fill = 255;
@@ -130,7 +128,6 @@ class Menu {
       && mouseX > width*5/10 - textWidth(buttons[0])) {
       //when the game is finshed
       if (gameOver) {
-        backgroundFuzz();
         score.showScore();
         play();
         loop();
@@ -143,7 +140,6 @@ class Menu {
           characterRunning = false;
           paused = false;
           menu = true;
-          background(0);
           loop(); // Sketch would've stopped looping from the pause detection
         }
       }
@@ -156,6 +152,7 @@ class Menu {
       && mouseX < width*1/10 + textWidth(buttons[2])
       && mouseX > width*1/10 - textWidth(buttons[2])
       ) {
+      showInstructions = false;
       if (characterRunning) {
         // Instruction button also works as a pause button when the game is running
         if (looping) { 

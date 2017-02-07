@@ -4,12 +4,6 @@ class Timer {
   int localBonus;
   int startTime = millis();
   int currentTime = 0;
-
-  String playerName = "Dave";
-  String outFilename = "out.csv";
-
-  ArrayList<String> lst = new ArrayList<String>();
-
   int count = 0;
 
 
@@ -59,10 +53,9 @@ class Timer {
   void myDelay(int ms) {
     timer = millis();
     while (millis() - timer < ms);
-    if(timer > ms){
-    println("Delay is over");
+    if (timer > ms) {
+      println("Delay is over");
     }
-    
   }
   void appendTextToFile(String filename, int score, String level) {
     f = new File(dataPath(filename));
@@ -112,8 +105,5 @@ class Timer {
     finally {
       scanner.close();
     }
-    //gameOver = false;
-    //menu = true;
   }
-
 }

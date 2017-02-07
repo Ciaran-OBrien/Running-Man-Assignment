@@ -11,7 +11,7 @@ class Sounds {
     }
   }
 
- // Method with the relevant bonus sounds
+  // Method with the relevant bonus sounds
   void bonus() {
     // Extra logic to insure the sound only plays once
     if (userChoice == "mario" && detect.bonusHit()) {

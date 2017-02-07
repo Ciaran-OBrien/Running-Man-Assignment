@@ -39,18 +39,18 @@ class Collision {
       ) {
       //Save the score when a hit collision has been registered
       gameOver = true;
-      score.appendTextToFile("out.csv", score.getScore(), userChoice);
+      score.appendTextToFile("highScores.csv", score.getScore(), userChoice);
       background.loadEndGameBg();
       play.dead();
       startMenu.exitBtn();
       userChoice = " ";
       characterRunning = false;
-      menu = false;    
+      menu = false;   
     } // end of nested enemy/character if
 
-    if (bonusY + bonusYBorder >= characterY - characterBorder &&// Y line border
-      bonusX + bonusXBorder >= characterX - characterXBorder && //Brigth enemy and Tleft char
-      bonusX - bonusXBorder <= characterX + characterXBorder //BLeft enemy and Tright char
+    if (bonusY + bonusYBorder >= characterY - characterBorder &&//line border
+      bonusX + bonusXBorder >= characterX - characterXBorder && //rigth enemy and left char
+      bonusX - bonusXBorder <= characterX + characterXBorder //Left enemy and right char
       ) {
       bonusHit = true;
       count++;
