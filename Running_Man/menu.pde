@@ -7,7 +7,7 @@ class Menu {
   float s=10; //length of line
   float x, y; //start of line
   // String of buttons names
-  String[] buttons = {"EXIT", "||", "INSTRUCTION"};
+  String[] buttons = {"EXIT", "||", "INSTRUCTION", "PLAY AGAIN", "YES", "NO"};
   // String of text for the main menu
   String[] userMenu = {"Please select your character", "Mario", "Sonic", "Pacman"};
 
@@ -16,7 +16,6 @@ class Menu {
   int j = 0; //first "wipe"
   int k = -250; //second "wipe"
   int l = -500; // Third "wipe"
-
 
   //float[] textMutiples = new textMultiples;
   //float marioTextMultiple = 6/10,sonicTextMultiple = 7/10,pacmanTextMultiple = 8/10;
@@ -88,25 +87,66 @@ class Menu {
     textSize(40);
     textAlign(CENTER);
     text(buttons[2], width*1/10, height*1/10);
-    noFill();
+  }
+
+  void play() {
+    fill(fill);
+    textSize(40);
+    textAlign(CENTER);
+    text(buttons[3], width*0.5, height*0.8);
+    text(buttons[4], width*0.3, height*0.9);
+    text(buttons[5], width*0.7, height*0.9);
   }
 
   // Method that checks the mouse's X & Y positions over the 'buttons'
   // Calleed from main class, mouseClicked()
   boolean detection() {
-    if (paused//Must have previous detection of exit button 
-      && mouseY < height*5/10 + 2*textAscent()
+    // Play again buttons
+    // Yes Button
+    if (mouseY < height*9/10 + 2*textAscent()
+      && mouseY > height*9/10 - 2*textAscent()
+      && mouseX < width*3/10 + textWidth(buttons[4])
+      && mouseX > width*3/10 - textWidth(buttons[4])) {
+      if (gameOver) {
+        menu = true;
+        gameOver = false;
+      }
+    }
+    // Play again buttons
+    // No Button
+    if (mouseY < height*9/10 + 2*textAscent()
+      && mouseY > height*9/10 - 2*textAscent()
+      && mouseX < width*7/10 + textWidth(buttons[4])
+      && mouseX > width*7/10 - textWidth(buttons[4])) {
+      if (gameOver) {
+        exit();
+        gameOver = false;
+      }
+    }
+    // Dectection of the exit button
+    if (mouseY < height*5/10 + 2*textAscent()
       && mouseY > height*5/10 - 2*textAscent()
       && mouseX < width*5/10 + textWidth(buttons[0])
-      && mouseX > width*5/10 - textWidth(buttons[0])
-      ) {
-      // Insuring the screen in only displaying what is needed
-      userChoice = " ";
-      characterRunning = false;
-      paused = false;
-      menu = true;
-      background(0);
-      loop(); // Sketch would've stopped looping from the pause detection
+      && mouseX > width*5/10 - textWidth(buttons[0])) {
+      //when the game is finshed
+      if (gameOver) {
+        backgroundFuzz();
+        score.showScore();
+        play();
+        loop();
+      }
+      // Game is still running, just paused for a moment
+      if (paused) {
+        {
+          // Insuring the screen in only displaying what is needed
+          userChoice = " ";
+          characterRunning = false;
+          paused = false;
+          menu = true;
+          background(0);
+          loop(); // Sketch would've stopped looping from the pause detection
+        }
+      }
     }
 
     // Detection of the instruction button
@@ -134,12 +174,12 @@ class Menu {
         if (!showInstructions) {
           menu = false;
           showInstructions = true;
-          startMenu.instructions();
+          instructions();
           loop();
         } else {
           loop();
           showInstructions = false;
-          menu = true;          
+          menu = true;
         }
       }
     }

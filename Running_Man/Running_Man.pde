@@ -117,9 +117,14 @@ void setup() {
 
 // Global variables
 String userChoice = "";
-boolean characterRunning  = false, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false;
+boolean characterRunning  = false, speed, gameOver = false, menu = true, bonusHit = false, showInstructions = false, showExit = false,playAgain = false;
 int loopCount;
 boolean plays;
+
+  String[] scores = new String[10];
+  String[] names = new String[10];
+  String[] levels = new String[10];
+
 
 void draw() {
   textFont(text);
@@ -139,6 +144,9 @@ void draw() {
     }
     if (showExit) {
       startMenu.exitBtn();
+    }
+    if(playAgain){
+      score.showScore();
     }
     // Non specific methods
     if (userChoice =="mario") {
@@ -245,4 +253,6 @@ void keyPressed() {
   if (keyCode == 'E') {
     loop();
   }
+  
+  
 }
