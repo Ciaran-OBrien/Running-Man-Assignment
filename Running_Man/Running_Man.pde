@@ -220,6 +220,7 @@ void draw() {
 } // End of draw
 
 void mousePressed() {
+
   if (startMenu.detection() && !characterRunning) {
     menu = false;
     gameOver = false;
@@ -227,21 +228,10 @@ void mousePressed() {
     newPlayer.setPosx(random(width));
     score.setTime();
   }
+  // Changing the direction of the player
   if (newPlayer.getDirection() == 1) {
     newPlayer.setDirection(-1);
   } else {
     newPlayer.setDirection(1);
-  }
-}
-
-void keyPressed() {
-  if (keyCode == 'I') {
-    if (showInstructions) {
-      menu = true;
-      showInstructions = false;
-    } else {
-      menu = false;
-      showInstructions = true;
-    }
   }
 }

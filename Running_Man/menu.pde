@@ -16,7 +16,7 @@ class Menu {
   int j = 0; //first "wipe"
   int k = -250; //second "wipe"
   int l = -500; // Third "wipe"
-  
+
   Menu() {
     paused = false;
     fill = 255;
@@ -152,7 +152,6 @@ class Menu {
       && mouseX < width*1/10 + textWidth(buttons[2])
       && mouseX > width*1/10 - textWidth(buttons[2])
       ) {
-      showInstructions = false;
       if (characterRunning) {
         // Instruction button also works as a pause button when the game is running
         if (looping) { 
@@ -172,7 +171,6 @@ class Menu {
           menu = false;
           showInstructions = true;
           instructions();
-          loop();
         } else {
           loop();
           showInstructions = false;
