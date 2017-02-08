@@ -9,7 +9,7 @@ class Instructions {
     textSize(45);    
     // Instructions explaining controls
     text("Welcome to the Running Man\n\n\n" + 
-      "Move: Touch the screen to change directions\n\n" +
+      "Move: Click/Touch the screen to change directions\n\n" +
       "Avoid the relavent enemies\n\n", 
       width * 0.5, height * 0.3);  
     // Drawing the enemies to show user
