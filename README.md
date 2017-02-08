@@ -9,32 +9,29 @@ Running man is a side scrolling action game that follows you, The Man, running f
 
 ### TODO
 - [ ] Images
-![Progress](http://progressed.io/bar/90?title=progress)
+![Progress](http://progressed.io/bar/100?title=progress)
 
 - [ ] Power Ups
-![Progress](http://progressed.io/bar/85?title=progress)
+![Progress](http://progressed.io/bar/100?title=progress)
 
 - [ ] Power Downs
-![Progress](http://progressed.io/bar/85?title=progress)
+![Progress](http://progressed.io/bar/100?title=progress)
 
 - [ ] Touch Controls
 ![Progress](http://progressed.io/bar/100?title=completed)
-
-- [ ] Key Controls
-![Progress](http://progressed.io/bar/20?title=progress)
 
 ### Controls
 
 The games is based off touch controls, a touch enabled laptop, or on mobile devices
 
-  * Simple Touch interaciton with menu
-  * Once game is running, touch screen to change running direction
+  * Simple Touch/Click interaciton with menu
+  * Once game is running, touch/click screen to change running direction
   
   
 ### Scoring System
 
   * Each second counts towards your running score keeper
-  * Coffee = 50 points
+  * Catch a bonus = 10 points
   
 ### Game Over
 
@@ -44,7 +41,7 @@ The game ends when you get hit by an enemy. The score is then saved and will be 
 
 [![Demo Video](http://img.youtube.com/vi/5ezeo7EM3yk/0.jpg)](https://youtu.be/5ezeo7EM3yk "Demo Video")
 
-### Code Samples
+### Key Coding Samples
 The below code runs for each character
 
 ```java
